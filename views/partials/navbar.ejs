@@ -1,0 +1,33 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+    <div class="container-fluid">
+      <div class="navbar-wrapper">
+        <div class="navbar-toggle">
+          <button onclick="myFunction()" type="button" class="navbar-toggler">
+            <span class="navbar-toggler-bar bar1"></span>
+            <span class="navbar-toggler-bar bar2"></span>
+            <span class="navbar-toggler-bar bar3"></span>
+          </button>
+        </div>
+        <%if(now == 'index'){%><a class="navbar-brand">Dashboard</a><%}%>
+        <%if(now == 'manage'){%><a class="navbar-brand">Manage Guilds</a><%}%>
+        <%if(now == 'commands'){%><a class="navbar-brand">Commands</a><%}%>
+        <%if(now == 'pp'){%><a class="navbar-brand">Privacy Policy</a><%}%>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navigation">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+              <li class="nav-item dropdown u-pro">
+                <%if(req.session.user){%>
+                  <span style="cursor: pointer;" class="nav-link waves-effect waves-dark profile-pic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img style="width: 25px; height: 25px; margin-right: 5px;" src="<%=req.session.user.avatarURL || "https://w5fc.org/wp-content/uploads/2021/05/s9biyhs4lix61.jpg"%>" alt="user" class="" /><span class="profile-pic"><b><%=req.session.user.username%> </b><span style="cursor:pointer;color:#2CA8FF;" onclick="window.location = '/discord/logout'"> &nbsp;&nbsp;Log out</span> &nbsp;&nbsp;</span></a>
+              <%}else{%>
+                  <span style="cursor: pointer;" class="nav-link waves-effect waves-dark profile-pic" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img style="width: 25px; height: 25px; margin-right: 5px;" src="https://w5fc.org/wp-content/uploads/2021/05/s9biyhs4lix61.jpg" alt="user" class="" /> <span class="profile-pic">  </b><span style="cursor:pointer;color:#2CA8FF;" onclick="window.location = '/discord'">Log in</span></span>
+              <%}%>
+            </li>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->

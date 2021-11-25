@@ -1,0 +1,62 @@
+{
+  "_from": "dbd-capriham-theme@^1.0.0",
+  "_id": "dbd-capriham-theme@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-ZqkPAvwjA51h5WGrldxTd+7VGYJXQVK0Xuxkuj0pUU9hbkbTwAZnPuCXJGtWCZ7adrTldV+qEwGYjS4xby9diA==",
+  "_location": "/dbd-capriham-theme",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "dbd-capriham-theme@^1.0.0",
+    "name": "dbd-capriham-theme",
+    "escapedName": "dbd-capriham-theme",
+    "rawSpec": "^1.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.0"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/",
+    "/discord-dashboard"
+  ],
+  "_resolved": "https://registry.npmjs.org/dbd-capriham-theme/-/dbd-capriham-theme-1.2.3.tgz",
+  "_shasum": "bf4708a01b3b6833b04dba8d58750613b3b9273f",
+  "_spec": "dbd-capriham-theme@^1.0.0",
+  "_where": "C:\\Users\\iMidnight\\Documents\\Glass Dashboard",
+  "author": {
+    "name": "breftejk"
+  },
+  "bugs": {
+    "url": "https://github.com/breftejk/DBD-capriham-theme/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "discord-dashboard theme: The best way to create a Web Dashboard for your Discord Bot! No need to edit files or write the server from scratch!",
+  "devDependencies": {},
+  "directories": {
+    "test": "test"
+  },
+  "homepage": "https://assistants.ga/dbd-docs/#/?id=capriham",
+  "keywords": [
+    "discord",
+    "discord.js",
+    "discordjs",
+    "discord dashboard",
+    "discord web dashboard",
+    "web dashboard",
+    "dashboard"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "dbd-capriham-theme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/breftejk/DBD-capriham-theme.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.2.3"
+}

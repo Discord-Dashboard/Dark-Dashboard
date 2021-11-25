@@ -1,0 +1,33 @@
+{
+  "name": "dbd-dark-dashboard",
+  "version": "1.4.1",
+  "description": "Discord Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "iMidnight",
+  "license": "ISC",
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "devDependencies": {},
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PlainDevelopment/dbd-dark-dashboard.git"
+  },
+  "keywords": [
+    "discord",
+    "dashboard",
+    "discord.js",
+    "discord-dashboard"
+  ],
+  "bugs": {
+    "url": "https://github.com/PlainDevelopment/dbd-dark-dashboard/issues"
+  },
+  "homepage": "https://github.com/PlainDevelopment/dbd-dark-dashboard#readme"
+}
+

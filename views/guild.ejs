@@ -1,0 +1,516 @@
+<!--
+   =========================================================
+   * Now UI Dashboard - v1.5.0
+   =========================================================
+   
+   * Product Page: https://www.creative-tim.com/product/now-ui-dashboard
+   * Copyright 2019 Creative Tim (http://www.creative-tim.com)
+   
+   * Designed by www.invisionapp.com Coded by www.creative-tim.com
+   
+   =========================================================
+   
+   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+   
+   -->
+<!DOCTYPE html>
+<html lang="en" id="perfect-scrollbar-on" class="perfect-scrollbar-on">
+   <head>
+      <meta charset="utf-8" />
+      <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+      <link rel="icon" type="image/png" href=<%=themeConfig.information.imageFavicon%>>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <title>
+         <%=themeConfig.information.websiteTitle%>
+      </title>
+      <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+         name='viewport' />
+      <%-include('partials/head.ejs')%>
+      <!--     Fonts and icons     -->
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+      <!-- CSS Files -->
+      <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+      <!-- CSS Just for demo purpose, don't include it in your project -->
+      <link href="./src/css/theme.css" id="theme" rel="stylesheet">
+      <link href="./src/css/darkreader.css" id="theme" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+      <style>
+         .select2-results__option.select2-results__option--selectable.select2-results__option--highlighted {
+            background-color: <%-themeConfig.information.main_color%> !important;
+         }
+      
+         .select2-selection.select2-selection--multiple {
+            background-color: #101112 !important;
+            border: none !important;
+         }
+      
+         .select2-container--default .select2-selection--multiple {
+            background-color: #101112 !important;
+            border: none !important;
+         }
+      
+         .select2-results__option.select2-results__option--selectable {
+            background: #101112 !important;
+            background-color: #101112 !important;
+         }
+      
+         #select2-prefix-3r-results {
+            border: none !important;
+         }
+      
+         .select2-selection__choice {
+            background-color: rgb(32, 31, 31) !important;
+            border: 1px solid rgb(32, 31, 31) !important;
+            border-radius: 4px;
+            box-sizing: border-box;
+            display: inline-block;
+            margin-left: 5px;
+            margin-top: 5px;
+            padding: 0;
+            padding-left: 20px;
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: bottom;
+            white-space: nowrap;
+         }
+      </style>
+      <style>
+         .scrollbar-nav {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+         }
+      </style>
+      <style>
+         h4 {
+         margin-top: 0px !important;
+         }
+      </style>
+      <style>
+         .panel-header {
+         background: <%-themeConfig.information.pagestylebg%> !important;
+         }
+      </style>
+      <style>
+         .svgText {
+         text-transform: capitalize !important;
+         font-weight: 500 !important;
+         letter-spacing: 0.05em;
+         }
+      </style>
+      <style>
+         .mleft15 {
+         margin-left: 15px;
+         }
+         .mbottom6 {
+         margin-bottom: 6px;
+         }
+         .cgray {
+         color: rgb(199, 196, 196) !important;
+         }
+      </style>
+      <style>
+         .column {
+         width: 30%;
+         margin-left: 30px;
+         }
+         .column2 {
+         width: 14%;
+         padding-left: 20px;
+         }
+      </style>
+      <style>
+         /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+         @media screen and (max-width: 600px) {
+         .column {
+         width: 100%;
+         margin-top: 10px;
+         }
+         .column2 {
+         width: 100%;
+         }
+         }
+      </style>
+       <style>
+         .nav-tabs .nav-link {
+           color: gray;
+           border: 0;
+           border-bottom: 1px solid grey;
+         }
+       
+         .nav-tabs .nav-link:hover {
+           border: 0;
+           border-bottom: 1px solid grey;
+         }
+       
+         .nav-tabs .nav-link.active {
+           color: <%-themeConfig.information.main_color%>;
+           border: 0;
+           border-radius: 0;
+           border-bottom: 5px solid <%-themeConfig.information.main_color%>;
+         }
+       </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+      <%-include('partials/css.ejs')%>
+   </head>
+   <body class="">
+      <%-include('partials/body.ejs')%>
+      <div class="wrapper ">
+         <!-- Side Bar-->
+         <%-include('partials/sidebar.ejs', {now:'manage'})%>
+         <div class="main-panel" id="main-panel">
+            <!-- Navbar -->
+            <%-include('partials/navbar.ejs', {now:'manage'})%>
+            <div class="panel-header panel-header-sm">
+            </div>
+            <div class="content">
+               <div class="row">
+                  <div class="col-lg-12">
+                     <div class="card card-chart">
+                        <div class="card-header">
+                           <h4 class="card-title">
+                              <img style="margin-bottom: 5px;" src="src/assets/images/info_white_24dp.svg">
+                              <% if(themeConfig.guildInfo){%><%-themeConfig.guildInfo.cardTitle%><% } else{ %>Server Information<% } %>
+                           </h4>
+                           <h5 class="card-category"><% if(themeConfig.guildInfo){%><%-themeConfig.guildInfo.cardDescription%><% } else{ %>An overview about your server<% } %></h5>
+                           <div class="dropdown">
+                           </div>
+                        </div>
+                        <div class="card-body" class="cgray">
+                           <div class="row">
+                              <div class="column2" style="padding-bottom: 18px;">
+                                 <img style="width: 150px;" class="round"
+                                    onerror="this.src = `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png`;"
+                                    src="https://cdn.discordapp.com/icons/<%=bot.guilds.cache.get(guildid).id%>/<%=bot.guilds.cache.get(guildid).icon%>.png" alt="...">
+                              </div>
+                              <div class="column">
+                                 <h5><b>General:</b></h5>
+                                 <div>
+                                    <h6 class="mleft15">
+                                       <img class="mbottom6" src="src/assets/images/badge_white_24dp.svg">
+                                       Server name: <span class="svgText"><%=bot.guilds.cache.get(guildid).name%></span>
+                                    </h6>
+                                    <h6 class="mleft15">
+                                       <img style="margin-bottom: 2px;" src="src/assets/images/pin_white_24dp.svg">
+                                       Server ID: <span class="svgText"><%=bot.guilds.cache.get(guildid).id%></span>
+                                    </h6>
+                                    <h6 class="mleft15">
+                                       <img class="mbottom6" src="src/assets/images/people_white_24dp.svg">
+                                       Member Count: <span class="svgText"><%=bot.guilds.cache.get(guildid).memberCount%></span>
+                                    </h6>
+                                 </div>
+                              </div>
+                              <div class="column">
+                                 <h5><b>Miscellaneous:</b></h5>
+                                 <div>
+                                    <h6 class="mleft15">
+                                       <img src="src/assets/images/security_white_24dp.svg">
+                                       Server Verification: <span class="svgText"><%=bot.guilds.cache.get(guildid).verificationLevel%></span>
+                                    </h6>
+                                    <h6 class="mleft15">
+                                       <img class="mbottom6" src="src/assets/images/groups_white_24dp.svg">
+                                       Boost Count: <span class="svgText"><%=bot.guilds.cache.get(guildid).premiumSubscriptionCount%></span>
+                                    </h6>
+                                    <h6 class="mleft15">
+                                       <img class="mbottom6" src="src/assets/images/card_membership_white_24dp.svg">
+                                       Boost Tier: <span class="svgText"><%=bot.guilds.cache.get(guildid).premiumTier%></span>
+                                    </h6>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="card">
+                        <% if(themeConfig.guildSettings){%><div class="card-header">
+                           <h4 class="card-title"><%-themeConfig.guildSettings.cardTitle%></h4>
+                           <p class="category"><%-themeConfig.guildSettings.cardDescription%></p>
+                        </div><% }%>
+                        <div class="card-body">
+                           <div class="table-responsive no-wrap">
+                              <nav style="margin-bottom: 20px;">
+                                 <div class="nav nav-tabs scrollbar-nav" id="nav-tab" role="tablist">
+                                    <%
+                                       let i22 = 0;
+                                       settings.forEach(s=>{
+                                       i22++;%>
+                                    <a class="nav-item nav-link<%if(i22==1){%> active<%}%>" id="<%=s.categoryId%>-tab" data-toggle="tab" href="#<%=s.categoryId%>" role="tab" aria-controls="<%=s.categoryId%>" aria-selected="true"><%=s.categoryName%></a>
+                                    <%})
+                                       %>
+                                 </div>
+                              </nav>
+                              <%if(successes==null && errors==null){%>
+                              <%}else if(req.query.success=='true' && req.query.error=='false' ){%>
+                              <script>
+                                 window.onload = function () {
+                                    const Toast = Swal.mixin({
+                                       toast: true,
+                                       position: 'top-end',
+                                       showConfirmButton: false,
+                                       timer: 3000,
+                                       timerProgressBar: true,
+                                       didOpen: (toast) => {
+                                          toast.addEventListener('mouseenter', Swal.stopTimer)
+                                          toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                       },
+                                       showClass: {
+                                          popup: 'animate__animated animate__fadeInDown'
+                                       },
+                                       hideClass: {
+                                          popup: 'animate__animated animate__fadeOutUp'
+                                       }
+                                    })
+                                 
+                                    Toast.fire({
+                                       icon: 'success',
+                                       title: '<% if(themeConfig.popupMsg){%><%-themeConfig.popupMsg.savedSettings%><% } else{ %>Saved settings<% } %>'
+                                    })
+                                 };
+                              </script>
+                              <%}else{%>
+                              <script>
+                                 window.onload = function () {
+                                    Swal.fire({
+                                       icon: 'error',
+                                       title: 'Error saving your settings',
+                                       html: `<%errors.forEach(e=>{%><%=e.split('%is%')[0]%>: <%=e.split('%is%')[1]%><br> <%})%>`
+                                    })
+                                 };
+                              </script>
+                              <%}%>
+                              <div class="tab-content" id="nav-tabContent">
+                                 <%
+                                    let i222 = 0;
+                                    settings.forEach(s=>{
+                                    i222++;%>
+                                 <div class="tab-pane fade<%if(i222==1){%> show active<%}%>" id="<%=s.categoryId%>" role="tabpanel" aria-labelledby="<%=s.categoryId%>-tab">
+                                    <form method="POST" action="/settings/update/<%=req.params.id%>/<%=s.categoryId%>">
+                                       <%
+                                          s.categoryOptionsList.forEach(option=>{%>
+                                       <%
+                                          if(option.optionType.type == "select"){%>
+                                       <h4 style="margin-top: 30px;"><%-option.optionName%></h4>
+                                       <%=option.optionDescription%><br>
+                                       <select class="col-md-12" <%if(option.optionType.disabled){%>disabled<%}%> name="<%=option.optionId%>" class="col-md-12" style="height:30px;">
+                                          <%
+                                             let ioo = 0;
+                                               option.optionType.data.values.forEach(value=>{%>
+                                          <option value="<%=value%>" <%if(actual[s.categoryId][option.optionId] == value){%>selected<%}%>><%=option.optionType.data.keys[ioo]%></option>
+                                          <%
+                                             ioo++;
+                                             })%>
+                                       </select>
+                                       <%}else if(option.optionType.type == "channelsMultiSelect" || option.optionType.type == "rolesMultiSelect"){%>
+
+                                          <h4><%=option.optionName%></h4>
+                                       <%=option.optionDescription%><br>
+                                       <select placeholder="Select" class="js-example-basic-multiple" <%if(option.optionType.disabled){%>disabled<%}%> required name="<%=option.optionId%>" style="width:100%;background: #f9f9ff;border-color: #f9f9ff;" multiple="multiple">
+                                          <%
+                                             let ioooooo = 0;
+                                             let functiona = option.optionType.function(bot, guildid);
+                                             functiona.values.forEach(value=>{%>
+                                          <option value="<%=value%>" <%if(actual[s.categoryId][option.optionId].includes(value)){%>selected<%}%>><%=functiona.keys[ioooooo]%></option>
+                                          <%
+                                             ioooooo++;
+                                             })%>
+                                       </select>
+                                       <br>
+                                       <hr>
+                                    <%
+
+                                        } 
+                                        else if(option.optionType == "spacer") {%>
+
+                                          <h3><b><%=option.title%></b></h3>
+                                          <%=option.description%>
+                                          <br>
+                                          <hr>
+                                          <%} 
+                                        else if(option.optionType.type == "multiSelect") {
+                                    %>
+
+                                    <h4><%=option.optionName%></h4>
+                                    <%=option.optionDescription%>
+                                    <br>
+                                    <select placeholder="Select"  class="js-example-basic-multiple" <%if(option.optionType.disabled){%>disabled<%}%> <%if(option.optionType.required){%>required<%}%> name="<%=option.optionId%>" style="width:100%;background: #f9f9ff;border-color: #f9f9ff;" class="col-md-12" multiple="multiple">
+                                    <%
+                                        let ioo = 0;
+                                        option.optionType.data.values.forEach(value => {
+                                    %>
+                                    <option value="<%=value%>"
+                                    <% if(actual[s.categoryId][option.optionId].includes(value)) { %>
+                                        selected
+                                    <% }
+                                    %> >
+                                    <%=option.optionType.data.keys[ioo]%>
+                                    </option>
+                                    <%
+                                        ioo++;
+                                        })
+                                    %>
+                                    </select>
+                                    <br>
+                                    <hr>
+                                       <%}else if(option.optionType.type == "input"){
+                                          %>
+
+                                       <h4><%-option.optionName%></h4>
+                                       <%=option.optionDescription%><br>
+                                       <input style="border:none;height:30px;" class="col-md-12" name="<%=option.optionId%>" <%if(option.optionType.required){%>required<%}%> <%if(option.optionType.disabled){%>disabled<%}%> placeholder="<%=option.optionType.data%>" <%if(actual[s.categoryId][option.optionId]){%>value="<%=actual[s.categoryId][option.optionId]%>"<%}%> <%if(option.optionType.min){%>minlength="<%=option.optionType.min%>"<%}%> <%if(option.optionType.max){%>maxlength="<%=option.optionType.max%>"<%}%>/>
+                                       <br>
+                                       <hr>
+                                       <%} else if(option.optionType.type == "textarea"){%>
+                                       <h4><%-option.optionName%></h4>
+                                       <%=option.optionDescription%><br>
+                                       <textarea name="<%=option.optionId%>" <%if(option.optionType.required){%>required<%}%> <%if(option.optionType.disabled){%>disabled<%}%> placeholder="<%=option.optionType.data%>" <%if(actual[s.categoryId][option.optionId]){%>value="<%=actual[s.categoryId][option.optionId]%>"<%}%> <%if(option.optionType.min){%>minlength="<%=option.optionType.min%>"<%}%> <%if(option.optionType.max){%>maxlength="<%=option.optionType.max%>"<%}%> rows="4" class="col-md-12"><%if(actual[s.categoryId][option.optionId]){%><%=actual[s.categoryId][option.optionId]%><%}%></textarea>
+                                       <br>
+                                       <hr>
+                                       <%}else if(option.optionType.type == "switch"){%>
+                                          <h4><%=option.optionName%></h4>
+                                          <%=option.optionDescription%><br>
+                                          <div class="primary-checkbox " style="align-items: center;">
+                                             <%if(actual[s.categoryId][option.optionId] == null || actual[s.categoryId][option.optionId] == undefined){%>
+                                                <%if(option.optionType.data == false && !option.optionType.disabled){%>
+                                                <input type="checkbox" id="<%=option.optionId%>" name="<%=option.optionId%>" />
+                                                <%} else if(option.optionType.data == true && !option.optionType.disabled){%>
+                                                <input type="checkbox" id="<%=option.optionId%>" name="<%=option.optionId%>" checked />
+                                                <%} else if(option.optionType.data == true && option.optionType.disabled){%>
+                                                <input type="checkbox" id="<%=option.optionId%>" checked disabled />
+                                                <%} else if(option.optionType.data == false && option.optionType.disabled){%>
+                                                <input type="checkbox" id="<%=option.optionId%>" disabled />
+                                                <%}%>
+                                                <%}else{%>
+                                                <%if(actual[s.categoryId][option.optionId] == false && !option.optionType.disabled){%>
+                                                <input type="checkbox" id="<%=option.optionId%>" name="<%=option.optionId%>" />
+                                                <%} else if(actual[s.categoryId][option.optionId] == true && !option.optionType.disabled){%>
+                                                <input type="checkbox" id="<%=option.optionId%>" name="<%=option.optionId%>" checked />
+                                                <%} else if(actual[s.categoryId][option.optionId] == true && option.optionType.disabled){%>
+                                                <input type="checkbox" id="<%=option.optionId%>" checked disabled />
+                                                <%} else if(actual[s.categoryId][option.optionId] == false && option.optionType.disabled){%>
+                                                <input type="checkbox" id="<%=option.optionId%>" disabled />
+                                                <%}%>
+                                                <%}%>
+                                                <label class="form-check-label" for="<%=option.optionId%>" style="padding-left: 0 !important;top:13px;left:3px;background-color: rgb(199, 199, 199);">
+                                                </label>
+                                          </div>
+                                       <br>
+                                       <hr>
+                                       <%}else if(option.optionType.type == "channelsSelect"){%>
+
+                                       <h4><%-option.optionName%></h4>
+                                       <%=option.optionDescription%><br>
+                                       <select <%if(option.optionType.disabled){%>disabled<%}%> name="<%=option.optionId%>" class="col-md-12" style="height:30px;">
+                                          <%
+                                             let ioooooo = 0;
+                                             let functiona = option.optionType.function(bot, guildid);
+                                             functiona.values.forEach(value=>{%>
+                                          <option value="<%=value%>" <%if(actual[s.categoryId][option.optionId] == value){%>selected<%}%>><%=functiona.keys[ioooooo]%></option>
+                                          <%
+                                             ioooooo++;
+                                             })%>
+                                       </select>
+                                       <br>
+                                       <hr>
+                                       <%}else if(option.optionType.type =="rolesSelect"){%>
+
+                                       <h4><%-option.optionName%></h4>
+                                       <%=option.optionDescription%><br>
+                                       <select <%if(option.optionType.disabled){%>disabled<%}%> name="<%=option.optionId%>" class="col-md-12" style="height:30px;">
+                                          <%
+                                             let iooooooo = 0;
+                                             let functiona = option.optionType.function(bot, guildid);
+                                             functiona.values.forEach(value=>{%>
+                                          <option value="<%=value%>" <%if(actual[s.categoryId][option.optionId] == value){%>selected<%}%>><%=functiona.keys[iooooooo]%></option>
+                                          <%
+                                             iooooooo++;
+                                             })%>
+                                       </select>
+                                       <br>
+                                       <hr>
+                                       <%}else if(option.optionType.type =="colorSelect"){%>
+
+                                       <h4><%-option.optionName%></h4>
+                                       <%=option.optionDescription%><br>
+                                       <input type="color" id="<%=option.optionId%>" name="<%=option.optionId%>"
+                                          value="<%=actual[s.categoryId][option.optionId] || option.optionType.data || "#ffffff"%>" <%if(option.optionType.disabled){%>disabled<%}%>>
+                                          <br>
+                                          <hr>
+                                       <%}%>
+                                       <%})
+                                          %>
+                                       <br><br>
+                                       <button style="background-color: #2CA8FF; border-radius: 20px;" class="btn btn-primary" type="submit">Submit</button>
+                                    </form>
+                                 </div>
+                                 <%})
+                                    %>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <%-include('partials/footer.ejs', {now:'manage'})%>
+         </div>
+      </div>
+      <!--   Core JS Files   -->
+      <script>function myFunction() {
+         var element = document.getElementById("perfect-scrollbar-on");
+         element.classList.toggle("nav-open");
+         }
+      </script>
+      <script src="../assets/js/core/jquery.min.js"></script>
+      <script src="../assets/js/core/popper.min.js"></script>
+      <script src="../assets/js/core/bootstrap.min.js"></script>
+      <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+      <!--  Google Maps Plugin    -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+      <!-- Chart JS -->
+      <script src="../assets/js/plugins/chartjs.min.js"></script>
+      <!--  Notifications Plugin    -->
+      <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+      <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+      <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+      <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+      <script src="../assets/demo/demo.js"></script>
+      <script src="assets/node_modules/jquery/jquery.min.js"></script>
+      <script src="assets/node_modules/bootstrap/js/popper.min.js"></script>
+      <script src="assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+      <script src="js/perfect-scrollbar.jquery.min.js"></script>
+      <script src="js/waves.js"></script>
+      <script src="js/sidebarmenu.js"></script>
+      <script src="js/custom.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
+      <script>
+         function removeAllChildNodes(parent) {
+             for(let i in [0,1,2,3]){
+                 parent.removeChild(parent.firstChild);
+             }
+         }
+         const container = document.getElementById('removeDiv');
+         removeAllChildNodes(container);
+      </script>
+      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+      <script>
+         $(document).ready(function() {
+         $('.js-example-basic-multiple').select2();
+         });
+      </script>
+
+   </body>
+</html>
