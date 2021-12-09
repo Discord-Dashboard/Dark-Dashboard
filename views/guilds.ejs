@@ -68,8 +68,12 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"><%=themeConfig.guilds.cardTitle%></h4>
-                <p class="category"><%=themeConfig.guilds.cardDescription%></p>
+                <h4 class="card-title">
+                  <% if(themeConfig.guilds){%><%-themeConfig.guildSettings.cardTitle%><% } else{ %>Guilds<% } %>
+                </h4>
+                <p class="category">
+                  <% if(themeConfig.guilds){%><%-themeConfig.guildSettings.cardDescription%><% } else{ %>Here are all the guilds you currenly have permissions for:<% } %>
+                </p>
               </div>
               <div class="card-body">
                 <table class="table vm no-th-brd pro-of-month">

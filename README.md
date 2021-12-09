@@ -1,8 +1,7 @@
 # DarkDashboard
 
 DarkDashboard is a completely free theme.
-This is nearly completed. Message me on discord if you find any bugs, iMidnight#3611.
-Most of the variables are not the same as Capriham theme so you may need to change them.
+If you find any issues, join the discord-dashboard [Discord Server](https://discord.gg/CHbfcSbEgd)!
 This theme was heavily based on Capriham and credit goes to breftejk.
 
 # Install
@@ -10,10 +9,6 @@ This theme was heavily based on Capriham and credit goes to breftejk.
 ```
 npm i dbd-dark-dashboard
 ```
-
-# Docs
-
-Add `http[s]://[yourdomain]/close` and `http[s]://[yourdomain]` to your https://discord.com/developers redirect oAuth.
 
 # Look
 
@@ -51,11 +46,6 @@ const Dashboard = new DBD.Dashboard({
       main_color: "#2CA8FF",
       sub_color: "#ebdbdb",
     },
-    invite: {
-      client_id: "[Client ID]",
-      redirectUri: "http://localhost:3000/close",
-      permissions: "8",
-    },
     index: {
       card: {
         category: "iMidnight's Panel - The center of everything",
@@ -76,48 +66,37 @@ const Dashboard = new DBD.Dashboard({
         footer: "Footer",
       },
     },
-    guilds: {
-      cardTitle: "Guilds",
-      cardDescription: "Here are all the guilds you currenly have permissions for:",
-    },
-    //If guildSettings is removed the text will not be visible.
-    guildSettings: {
-      cardTitle: "Guild Settings",
-      cardDescription: "Here you can manage all the settings for your guild:",
-    },
-    commands: {
-      categoryOne: {
-        category: `Starting Up`,
-        subTitle: `All helpful commands`,
-        list: [
-          {
-            commandName: "Test command",
-            commandUsage: "prefix.test <arg> [op]",
-            commandDescription: "Lorem ipsum dolor sth",
-            commandAlias: "Alias",
-          },
-          {
-            commandName: "2nd command",
-            commandUsage: "oto.nd <arg> <arg2> [op]",
-            commandDescription: "Lorem ipsum dolor sth, arg sth arg2 stuff",
-            commandAlias: "Alias",
-          },
-          {
-            commandName: "Test command",
-            commandUsage: "prefix.test <arg> [op]",
-            commandDescription: "Lorem ipsum dolor sth",
-            commandAlias: "Alias",
-          },
-        ],
-      },
-    },
+    commands: [
+       {
+           category: "Starting Up",
+           subTitle: "All helpful commands",
+           list: [{
+                   commandName: "bug",
+                   commandUsage: ";bug <bug>",
+                   commandDescription: "Report a bug to the developers of Wooar.",
+                   commandAlias: "No aliases"
+               },
+               {
+                   commandName: "2nd command",
+                   commandUsage: "oto.nd <arg> <arg2> [op]",
+                   commandDescription: "Lorem ipsum dolor sth, arg sth arg2 stuff",
+                   commandAlias: "Alias",
+               },
+               {
+                   commandName: "Test command",
+                   commandUsage: "prefix.test <arg> [op]",
+                   commandDescription: "Lorem ipsum dolor sth",
+                   commandAlias: "Alias",
+               },
+           ],
+       },
+     ],
   }),
 ...
 });
 
 Dashboard.init();
 ```
-
 # Optional 
 Custom HTML
 ```js
@@ -125,6 +104,15 @@ Custom HTML
     custom_html: {
         head: ``,
         body: ``,
+    },
+...
+```
+
+Custom Privacy Policy
+```js
+...
+    privacyPolicy: {
+      pp: "<span> Use custom html!</span>"
     },
 ...
 ```
@@ -143,82 +131,14 @@ Custom Text
       cardDescription: "An overview about your server",
     },
 ...
-```
-
-
-Command Categories (Keep inside commands section)
-```js
 ...
-
-    categoryTwo: {
-      category: `Moderation Commands`,
-      subTitle: `All Moderation commands`,
-      list: [
-        {
-          commandName: "Test command",
-          commandUsage: "prefix.test <arg> [op]",
-          commandDescription: "Lorem ipsum dolor sth",
-          commandAlias: "Alias",
-        },
-        {
-          commandName: "2nd command",
-          commandUsage: "oto.nd <arg> <arg2> [op]",
-          commandDescription: "Lorem ipsum dolor sth, arg sth arg2 stuff",
-          commandAlias: "Alias",
-        },
-        {
-          commandName: "Test command",
-          commandUsage: "prefix.test <arg> [op]",
-          commandDescription: "Lorem ipsum dolor sth",
-          commandAlias: "Alias",
-        },
-      ],
-    },
-    categoryThree: {
-      category: `Miscellaneous Commands`,
-      subTitle: `All Miscellaneous commands`,
-      list: [
-        {
-          commandName: "Test command",
-          commandUsage: "prefix.test <arg> [op]",
-          commandDescription: "Lorem ipsum dolor sth",
-          commandAlias: "Alias",
-        },
-        {
-          commandName: "2nd command",
-          commandUsage: "oto.nd <arg> <arg2> [op]",
-          commandDescription: "Lorem ipsum dolor sth, arg sth arg2 stuff",
-          commandAlias: "Alias",
-        },
-        {
-          commandName: "Test command",
-          commandUsage: "prefix.test <arg> [op]",
-          commandDescription: "Lorem ipsum dolor sth",
-          commandAlias: "Alias",
-        },
-      ],
-    },
-    categoryFour: {
-      category: `List`,
-      subTitle: `All commands`,
-      list: [],
-    },
-    categoryFive: {
-      category: `List`,
-      subTitle: `All commands`,
-      list: [],
+    guildSettings: {
+      cardTitle: "Guild Settings",
+      cardDescription: "Here you can manage all the settings for your guild:",
     },
 ...
 ```
-Guild Information 
-```js
-...
-    guildInfo: {
-        cardTitle: "Server Information",
-        cardDescription: "An overview about your server",
-    },
-...
-```
+
 Popups
 ```js
 ...
