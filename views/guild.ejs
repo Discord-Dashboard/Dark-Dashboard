@@ -40,6 +40,135 @@
       <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
       <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
       <style>
+         /* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+         /* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  transition: 300ms;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 10px;
+  top: 7px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* The switch - the box around the slider */
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.toggleSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.tslider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.tslider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .tslider {
+  background-color: #2196F3;
+}
+
+input:focus + .tslider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .tslider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.tslider.round {
+  border-radius: 34px;
+}
+
+.tslider.round:before {
+  border-radius: 50%;
+}
          .select2-results__option.select2-results__option--selectable.select2-results__option--highlighted {
             background-color: <%-themeConfig.information.main_color%> !important;
          }
@@ -80,8 +209,6 @@
             vertical-align: bottom;
             white-space: nowrap;
          }
-      </style>
-      <style>
          .scrollbar-nav {
             display: flex;
             flex-direction: row;
@@ -89,25 +216,17 @@
             overflow-x: auto;
             overflow-y: hidden;
          }
-      </style>
-      <style>
          h4 {
          margin-top: 0px !important;
          }
-      </style>
-      <style>
          .panel-header {
          background: <%-themeConfig.information.pagestylebg%> !important;
          }
-      </style>
-      <style>
          .svgText {
          text-transform: capitalize !important;
          font-weight: 500 !important;
          letter-spacing: 0.05em;
          }
-      </style>
-      <style>
          .mleft15 {
          margin-left: 15px;
          }
@@ -117,8 +236,6 @@
          .cgray {
          color: rgb(199, 196, 196) !important;
          }
-      </style>
-      <style>
          .column {
          width: 30%;
          margin-left: 30px;
@@ -127,8 +244,6 @@
          width: 14%;
          padding-left: 20px;
          }
-      </style>
-      <style>
          /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
          @media screen and (max-width: 600px) {
          .column {
@@ -139,8 +254,6 @@
          width: 100%;
          }
          }
-      </style>
-       <style>
          .nav-tabs .nav-link {
            color: gray;
            border: 0;
@@ -190,7 +303,7 @@
                            <div class="row">
                               <div class="column2" style="padding-bottom: 18px;">
                                  <img style="width: 150px;" class="round"
-                                    onerror="this.src = `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png`;"
+                                    onerror="this.src = `https://media.pocketgamer.biz/2021/5/110514/discord-new-logo-2021-r225x.jpg`;"
                                     src="https://cdn.discordapp.com/icons/<%=bot.guilds.cache.get(guildid).id%>/<%=bot.guilds.cache.get(guildid).icon%>.png" alt="...">
                               </div>
                               <div class="column">
@@ -303,7 +416,7 @@
                                        <%
                                           if(option.optionType.type == "select"){%>
                                        <h4 style="margin-top: 30px;"><%-option.optionName%></h4>
-                                       <%=option.optionDescription%><br>
+                                       <%-option.optionDescription%><br>
                                        <select class="col-md-12" <%if(option.optionType.disabled){%>disabled<%}%> name="<%=option.optionId%>" class="col-md-12" style="height:30px;">
                                           <%
                                              let ioo = 0;
@@ -313,10 +426,33 @@
                                              ioo++;
                                              })%>
                                        </select>
+                                       <%}else if(option.optionType.type == "checkbox"){
+                                          let val = "";
+                                          %>
+                                          <h4><%-option.optionName%></h4>
+                                          <%-option.optionDescription%><br>
+                                          <label class="container">
+                                             <input type="checkbox" id="<%=option.optionId%>" name="<%=option.optionId%>" <%if(option.optionType.disabled){%>disabled<%}%>>
+                                             <span class="checkmark round"></span>
+                                           </label>
+                                           <br>
+                                          <hr>
+                                       <%}else if(option.optionType.type == "switch"){
+                                          let val = "";
+                                          if(actual[s.categoryId][option.optionId]) val = "checked";
+                                          %>
+                                          <h4><%-option.optionName%></h4>
+                                          <%-option.optionDescription%><br>
+                                          <label class="toggleSwitch">
+                                             <input type="checkbox" id="<%=option.optionId%>" name="<%=option.optionId%>" <%-val%> <%if(option.optionType.disabled){%>disabled<%}%>>
+                                             <span class="tslider round"></span>
+                                           </label>
+                                           <br>
+                                          <hr>
                                        <%}else if(option.optionType.type == "channelsMultiSelect" || option.optionType.type == "rolesMultiSelect"){%>
 
-                                          <h4><%=option.optionName%></h4>
-                                       <%=option.optionDescription%><br>
+                                          <h4><%-option.optionName%></h4>
+                                       <%-option.optionDescription%><br>
                                        <select placeholder="Select" class="js-example-basic-multiple" <%if(option.optionType.disabled){%>disabled<%}%> required name="<%=option.optionId%>" style="width:100%;background: #f9f9ff;border-color: #f9f9ff;" multiple="multiple">
                                           <%
                                              let ioooooo = 0;
@@ -342,8 +478,8 @@
                                         else if(option.optionType.type == "multiSelect") {
                                     %>
 
-                                    <h4><%=option.optionName%></h4>
-                                    <%=option.optionDescription%>
+                                    <h4><%-option.optionName%></h4>
+                                    <%-option.optionDescription%>
                                     <br>
                                     <select placeholder="Select"  class="js-example-basic-multiple" <%if(option.optionType.disabled){%>disabled<%}%> <%if(option.optionType.required){%>required<%}%> name="<%=option.optionId%>" style="width:100%;background: #f9f9ff;border-color: #f9f9ff;" class="col-md-12" multiple="multiple">
                                     <%
@@ -368,11 +504,11 @@
                                           %>
 
                                        <h4><%-option.optionName%></h4>
-                                       <%=option.optionDescription%><br>
+                                       <%-option.optionDescription%><br>
                                        <input style="border:none;height:30px;" class="col-md-12" name="<%=option.optionId%>" <%if(option.optionType.required){%>required<%}%> <%if(option.optionType.disabled){%>disabled<%}%> placeholder="<%=option.optionType.data%>" <%if(actual[s.categoryId][option.optionId]){%>value="<%=actual[s.categoryId][option.optionId]%>"<%}%> <%if(option.optionType.min){%>minlength="<%=option.optionType.min%>"<%}%> <%if(option.optionType.max){%>maxlength="<%=option.optionType.max%>"<%}%>/>
                                        <br>
                                        <hr>
-                                         <%}else if(option.optionType.type == "twoInputs"){
+                                       <%}else if(option.optionType.type == "twoInputs"){
                                             %>
                                           <h4><%-option.optionName%></h4>
                                           <%=option.optionDescription%>
@@ -386,44 +522,14 @@
                                           <hr>
                                        <%} else if(option.optionType.type == "textarea"){%>
                                        <h4><%-option.optionName%></h4>
-                                       <%=option.optionDescription%><br>
+                                       <%-option.optionDescription%><br>
                                        <textarea name="<%=option.optionId%>" <%if(option.optionType.required){%>required<%}%> <%if(option.optionType.disabled){%>disabled<%}%> placeholder="<%=option.optionType.data%>" <%if(actual[s.categoryId][option.optionId]){%>value="<%=actual[s.categoryId][option.optionId]%>"<%}%> <%if(option.optionType.min){%>minlength="<%=option.optionType.min%>"<%}%> <%if(option.optionType.max){%>maxlength="<%=option.optionType.max%>"<%}%> rows="4" class="col-md-12"><%if(actual[s.categoryId][option.optionId]){%><%=actual[s.categoryId][option.optionId]%><%}%></textarea>
-                                       <br>
-                                       <hr>
-                                       <%}else if(option.optionType.type == "switch"){%>
-                                          <h4><%=option.optionName%></h4>
-                                          <%=option.optionDescription%><br>
-                                          <div class="primary-checkbox " style="align-items: center;">
-                                             <%if(actual[s.categoryId][option.optionId] == null || actual[s.categoryId][option.optionId] == undefined){%>
-                                                <%if(option.optionType.data == false && !option.optionType.disabled){%>
-                                                <input type="checkbox" id="<%=option.optionId%>" name="<%=option.optionId%>" />
-                                                <%} else if(option.optionType.data == true && !option.optionType.disabled){%>
-                                                <input type="checkbox" id="<%=option.optionId%>" name="<%=option.optionId%>" checked />
-                                                <%} else if(option.optionType.data == true && option.optionType.disabled){%>
-                                                <input type="checkbox" id="<%=option.optionId%>" checked disabled />
-                                                <%} else if(option.optionType.data == false && option.optionType.disabled){%>
-                                                <input type="checkbox" id="<%=option.optionId%>" disabled />
-                                                <%}%>
-                                                <%}else{%>
-                                                <%if(actual[s.categoryId][option.optionId] == false && !option.optionType.disabled){%>
-                                                <input type="checkbox" id="<%=option.optionId%>" name="<%=option.optionId%>" />
-                                                <%} else if(actual[s.categoryId][option.optionId] == true && !option.optionType.disabled){%>
-                                                <input type="checkbox" id="<%=option.optionId%>" name="<%=option.optionId%>" checked />
-                                                <%} else if(actual[s.categoryId][option.optionId] == true && option.optionType.disabled){%>
-                                                <input type="checkbox" id="<%=option.optionId%>" checked disabled />
-                                                <%} else if(actual[s.categoryId][option.optionId] == false && option.optionType.disabled){%>
-                                                <input type="checkbox" id="<%=option.optionId%>" disabled />
-                                                <%}%>
-                                                <%}%>
-                                                <label class="form-check-label" for="<%=option.optionId%>" style="padding-left: 0 !important;top:13px;left:3px;background-color: rgb(199, 199, 199);">
-                                                </label>
-                                          </div>
                                        <br>
                                        <hr>
                                        <%}else if(option.optionType.type == "channelsSelect"){%>
 
                                        <h4><%-option.optionName%></h4>
-                                       <%=option.optionDescription%><br>
+                                       <%-option.optionDescription%><br>
                                        <select <%if(option.optionType.disabled){%>disabled<%}%> name="<%=option.optionId%>" class="col-md-12" style="height:30px;">
                                           <%
                                              let ioooooo = 0;
@@ -440,7 +546,7 @@
                                        <%}else if(option.optionType.type =="rolesSelect"){%>
 
                                        <h4><%-option.optionName%></h4>
-                                       <%=option.optionDescription%><br>
+                                       <%-option.optionDescription%><br>
                                        <select <%if(option.optionType.disabled){%>disabled<%}%> name="<%=option.optionId%>" class="col-md-12" style="height:30px;">
                                           <%
                                              let iooooooo = 0;
@@ -456,7 +562,7 @@
                                        <%}else if(option.optionType.type =="colorSelect"){%>
 
                                        <h4><%-option.optionName%></h4>
-                                       <%=option.optionDescription%><br>
+                                       <%-option.optionDescription%><br>
                                        <input type="color" id="<%=option.optionId%>" name="<%=option.optionId%>"
                                           value="<%=actual[s.categoryId][option.optionId] || option.optionType.data || "#ffffff"%>" <%if(option.optionType.disabled){%>disabled<%}%>>
                                           <br>
