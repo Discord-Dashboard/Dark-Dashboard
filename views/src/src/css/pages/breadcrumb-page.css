@@ -20,13 +20,18 @@ Breadcrumb
  ============================================================== */
 .bc-colored .breadcrumb-item,
 .bc-colored .breadcrumb-item a {
-  color: #ffffff; }
-  .bc-colored .breadcrumb-item.active,
-  .bc-colored .breadcrumb-item a.active {
-    opacity: 0.7; }
+    color: #ffffff;
+}
+
+.bc-colored .breadcrumb-item.active,
+.bc-colored .breadcrumb-item a.active {
+    opacity: 0.7;
+}
 
 .bc-colored .breadcrumb-item + .breadcrumb-item::before {
-  color: rgba(255, 255, 255, 0.4); }
+    color: rgba(255, 255, 255, 0.4);
+}
 
 .breadcrumb {
-  margin-bottom: 0px; }
+    margin-bottom: 0px;
+}

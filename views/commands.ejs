@@ -18,99 +18,99 @@
 <html lang="en" id="perfect-scrollbar-on" class="perfect-scrollbar-on">
 
 <head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href=<%=themeConfig.information.imageFavicon%>>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    <%=themeConfig.information.websiteTitle%>
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-    name='viewport' />
-    <%-include('partials/head.ejs')%>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <!-- CSS Files -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
-  <link href="./src/css/theme.css" id="theme" rel="stylesheet">
-  <link href="./src/css/darkreader.css" id="theme" rel="stylesheet">
-  <style>
-    .code {
-      padding: .2rem .4rem;
-      font-size: 90%;
-      color: white;
-      background-color: rgb(45, 48, 49);
-      border-radius: .25rem;
-    }
-  </style>
+    <meta charset="utf-8"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href=<%= themeConfig.information.imageFavicon %>>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>
+        <%= themeConfig.information.websiteTitle %>
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+          name='viewport'/>
+    <%- include('partials/head.ejs') %>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- CSS Files -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet"/>
+    <link href="./src/css/theme.css" id="theme" rel="stylesheet">
+    <link href="./src/css/darkreader.css" id="theme" rel="stylesheet">
     <style>
-      .panel-header {
-      background: <%-themeConfig.information.pagestylebg%> !important;
-  }
+        .code {
+            padding: .2rem .4rem;
+            font-size: 90%;
+            color: white;
+            background-color: rgb(45, 48, 49);
+            border-radius: .25rem;
+        }
     </style>
-    <%-include('partials/css.ejs')%>
+    <style>
+        .panel-header {
+            background: <%-themeConfig.information.pageBackGround%> !important;
+        }
+    </style>
+    <%- include('partials/css.ejs') %>
 </head>
 
 <body class="">
-  <%-include('partials/body.ejs')%>
+<%- include('partials/body.ejs') %>
 <!-- Side Bar-->
-<%-include('partials/sidebar.ejs', {now:'commands'})%>
-    <div class="main-panel" id="main-panel">
-     <!-- Navbar -->
-      <%-include('partials/navbar.ejs', {now:'commands'})%>
-      <div class="panel-header panel-header-sm">
-      </div>
-      <div class="content">
-        <div class="row">
-          <% themeConfig.commands.forEach(category => { %>
-            <div class="col-12" id="divtable">
-              <div class="card mb-4">
-                <div class="card-header">
-                  <h4 class="card-title"><%=category.category%></h4>
-                  <p class="category"><%=category.subTitle%></p>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table" id="table1">
-                      <thead class=" text-primary">
-                        <th>
-                          Name
-                        </th>
-                        <th>
-                          Command Usage
-                        </th>
-                        <th>
-                          Description
-                        </th>
-                        <th>
-                          Aliases
-                        </th>
-                      </thead>
-                      <tbody>
-                        <%category.list.forEach((item)=>{%>
-                          <tr>
-                            <td><%=item.commandName%></td>
-                            <td><code><%=item.commandUsage%></code></td>
-                            <td><%=item.commandDescription%></td>
-                            <td><code><%=item.commandAlias%></code></td>
-                         </tr>
-                        <%})%>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <% })%>
-        </div>
-      </div>
-      <%-include('partials/footer.ejs', {now:'commands'})%>
+<%- include('partials/sidebar.ejs', {now:'commands'}) %>
+<div class="main-panel" id="main-panel">
+    <!-- Navbar -->
+    <%- include('partials/navbar.ejs', {now:'commands'}) %>
+    <div class="panel-header panel-header-sm">
     </div>
-  </div>
-  <!--   Core JS Files   -->
-  <script src="../views/src/js/perfect_scrollbar.js"></script>
+    <div class="content">
+        <div class="row">
+            <% themeConfig.commands.forEach(category => { %>
+            <div class="col-12" id="divtable">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4 class="card-title"><%= category.category %></h4>
+                        <p class="category"><%= category.subTitle %></p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="table1">
+                                <thead class=" text-primary">
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Command Usage
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Aliases
+                                </th>
+                                </thead>
+                                <tbody>
+                                <% category.list.forEach((item)=>{ %>
+                                <tr>
+                                    <td><%= item.commandName %></td>
+                                    <td><code><%= item.commandUsage %></code></td>
+                                    <td><%= item.commandDescription %></td>
+                                    <td><code><%= item.commandAlias %></code></td>
+                                </tr>
+                                <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+    <%- include('partials/footer.ejs', {now:'commands'}) %>
+</div>
+</div>
+<!--   Core JS Files   -->
+<script src="../views/src/js/perfect_scrollbar.js"></script>
 </body>
 </html>

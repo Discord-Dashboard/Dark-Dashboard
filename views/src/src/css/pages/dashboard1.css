@@ -13,4 +13,5 @@ File: scss
  Our income
 *******************/
 .o-income .c3 line, .o-income .c3 path {
-  stroke: rgba(120, 130, 140, 0.13); }
+    stroke: rgba(120, 130, 140, 0.13);
+}
