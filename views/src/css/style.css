@@ -49,8 +49,8 @@ File: scss
 /******************* 
 Global Styles 
 *******************/
-@import url(../css/spinners.css);
-@import url(../css/animate.css);
+@import url(https://adn.siondevelopment.xyz/dbd-dark/src/css/spinners.css);
+@import url(https://adn.siondevelopment.xyz/dbd-dark/src/css/animate.css);
 
 * {
     outline: none;
