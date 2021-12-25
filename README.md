@@ -43,7 +43,7 @@ const Dashboard = new DBD.Dashboard({
         iconURL: "https://www.imidnight.ml/assets/img/logo-circular.png",
         pageBackGround: "linear-gradient(#2CA8FF, #155b8d)",
         mainColor: "#2CA8FF",
-        sub_color: "#ebdbdb",
+        subColor: "#ebdbdb",
     },
     index: {
         card: {
