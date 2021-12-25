@@ -18,138 +18,155 @@
 <html lang="en" id="perfect-scrollbar-on" class="perfect-scrollbar-on">
 
 <head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href=<%=themeConfig.information.imageFavicon%>>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    <%=themeConfig.information.websiteTitle%>
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-    name='viewport' />
-    <%-include('partials/head.ejs')%>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <!-- CSS Files -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
-  <link href="./src/css/theme.css" id="theme" rel="stylesheet">
-  <link href="./src/css/darkreader.css" id="theme" rel="stylesheet">
-  <style>
-    .panel-header {
-    background: <%-themeConfig.information.pagestylebg%> !important;
-}
-  </style>
-  <style>
-    .small, small {
-      font-size: 100% !important;
-  }
-  .not-invited {
-    background-color: rgb(87, 84, 84) !important;
-}
-  </style>
-  <%-include('partials/css.ejs')%>
+    <meta charset="utf-8"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href=<%= themeConfig.information.imageFavicon %>>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>
+        <%= themeConfig.information.websiteTitle %>
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+          name='viewport'/>
+    <%- include('partials/head.ejs') %>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- CSS Files -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet"/>
+    <link href="./src/css/theme.css" id="theme" rel="stylesheet">
+    <link href="./src/css/darkreader.css" id="theme" rel="stylesheet">
+    <style>
+        .panel-header {
+            background: <%-themeConfig.information.pageBackGround%> !important;
+        }
+    </style>
+    <style>
+        .small, small {
+            font-size: 100% !important;
+        }
+
+        .not-invited {
+            background-color: rgb(87, 84, 84) !important;
+        }
+    </style>
+    <%- include('partials/css.ejs') %>
 </head>
 
 <body class="">
-  <%-include('partials/body.ejs')%>
-  <div class="wrapper ">
-  <!-- Side Bar-->
-  <%-include('partials/sidebar.ejs', {now:'manage'})%>
+<%- include('partials/body.ejs') %>
+<div class="wrapper ">
+    <!-- Side Bar-->
+    <%- include('partials/sidebar.ejs', {now:'manage'}) %>
     <div class="main-panel" id="main-panel">
-     <!-- Navbar -->
-      <%-include('partials/navbar.ejs', {now:'manage'})%>
-      <div class="panel-header panel-header-sm">
-      </div>
-      <div class="content">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">
-                  <% if(themeConfig.guilds){%><%-themeConfig.guildSettings.cardTitle%><% } else{ %>Guilds<% } %>
-                </h4>
-                <p class="category">
-                  <% if(themeConfig.guilds){%><%-themeConfig.guildSettings.cardDescription%><% } else{ %>Here are all the guilds you currenly have permissions for:<% } %>
-                </p>
-              </div>
-              <div class="card-body">
-                <table class="table vm no-th-brd pro-of-month">
-                  <thead>
-                     <tr>
-                        <th colspan="2">Servers</th>
-                        <th>Action</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <%
-                        for(var i in req.session.guilds){%>
-                     <%if((req.session.guilds[i].permissions & 0x00000020) == 0x00000020){%> 
-                     <%if(!bot.guilds.cache.get(req.session.guilds[i].id)){
-                        %>
-                     <tr>
-                        <td style="width:50px;"><img class="media-object round" onerror="this.src = `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png`;" src="https://cdn.discordapp.com/icons/<%=req.session.guilds[i].id%>/<%=req.session.guilds[i].icon%>.png"></td>
-                        <td>
-                           <h6><%=req.session.guilds[i].name%></h6>
-                           <small class="text-muted">Not in the server</small>
-                        </td>
-                        <td><a href="/invite" role="button" style="margin-left: 10px;" class="btn btn-small not-invited">Invite bot</a></td>
-                     </tr>
-                     
-                     <%}else{%>
-                     <tr>
-                        <td style="width:50px;"><img class="media-object round" onerror="this.src = `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png`;" src="https://cdn.discordapp.com/icons/<%=req.session.guilds[i].id%>/<%=req.session.guilds[i].icon%>.png"></td>
-                        <td>
-                           <h6><%=req.session.guilds[i].name%></h6>
-                           <small class="text-muted">In the server</small>
-                        </td>
-                        <td><a href="/guild/<%=req.session.guilds[i].id%>" role="button" class="btn btn-small invited">Manage bot</a></td>
-                     </tr>
-                     <%}%>
-                     <%}%>
-                     <%}%>
-                  </tbody>
-               </table>
-               <p style="color: rgb(199, 196, 196);">If you cant see any of your servers try <span style="cursor: pointer;" class="bluey" onclick="window.location = '/discord/logout'">logging out</span>.</p>
-              </div>
-            </div>
-          </div>
+        <!-- Navbar -->
+        <%- include('partials/navbar.ejs', {now:'manage'}) %>
+        <div class="panel-header panel-header-sm">
         </div>
-      </div>
-      <%-include('partials/footer.ejs', {now:'manage'})%>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                <% if(themeConfig.guilds){ %>
+                                <%- themeConfig.guildSettings.cardTitle %>
+                                <% } else{ %>Guilds
+                                <% } %>
+                            </h4>
+                            <p class="category">
+                                <% if(themeConfig.guilds){ %>
+                                <%- themeConfig.guildSettings.cardDescription %>
+                                <% } else{ %>Here are all the guilds you currenly have permissions for:
+                                <% } %>
+                            </p>
+                        </div>
+                        <div class="card-body">
+                            <table class="table vm no-th-brd pro-of-month">
+                                <thead>
+                                <tr>
+                                    <th colspan="2">Servers</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <%
+                                for(var i in req.session.guilds){ %>
+                                <% if((req.session.guilds[i].permissions & 0x00000020) == 0x00000020){ %>
+                                <% if(!bot.guilds.cache.get(req.session.guilds[i].id)){
+                                %>
+                                <tr>
+                                    <td style="width:50px;"><img class="media-object round"
+                                                                 onerror="this.src = `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png`;"
+                                                                 src="https://cdn.discordapp.com/icons/<%= req.session.guilds[i].id %>/<%= req.session.guilds[i].icon %>.png">
+                                    </td>
+                                    <td>
+                                        <h6><%= req.session.guilds[i].name %></h6>
+                                        <small class="text-muted">Not in the server</small>
+                                    </td>
+                                    <td><a href="/invite" role="button" style="margin-left: 10px;"
+                                           class="btn btn-small not-invited">Invite bot</a></td>
+                                </tr>
+
+                                <% }else{ %>
+                                <tr>
+                                    <td style="width:50px;"><img class="media-object round"
+                                                                 onerror="this.src = `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png`;"
+                                                                 src="https://cdn.discordapp.com/icons/<%= req.session.guilds[i].id %>/<%= req.session.guilds[i].icon %>.png">
+                                    </td>
+                                    <td>
+                                        <h6><%= req.session.guilds[i].name %></h6>
+                                        <small class="text-muted">In the server</small>
+                                    </td>
+                                    <td><a href="/guild/<%= req.session.guilds[i].id %>" role="button"
+                                           class="btn btn-small invited">Manage bot</a></td>
+                                </tr>
+                                <% } %>
+                                <% } %>
+                                <% } %>
+                                </tbody>
+                            </table>
+                            <p style="color: rgb(199, 196, 196);">If you cant see any of your servers try <span
+                                        style="cursor: pointer;" class="bluey"
+                                        onclick="window.location = '/discord/logout'">logging out</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('partials/footer.ejs', {now:'manage'}) %>
     </div>
-  </div>
-  <!--   Core JS Files   -->
-  <script src="../views/src/js/perfect_scrollbar.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
-  <script>
-    if(window.location.href.indexOf("?error=noPermsToManageGuild") != -1){
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-           toast.addEventListener('mouseenter', Swal.stopTimer)
-           toast.addEventListener('mouseleave', Swal.resumeTimer)
-        },
-        showClass: {
-           popup: 'animate__animated animate__fadeInDown'
-        },
-        hideClass: {
-           popup: 'animate__animated animate__fadeOutUp'
-        }
+</div>
+<!--   Core JS Files   -->
+<script src="../views/src/js/perfect_scrollbar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
+<script>
+    if (window.location.href.indexOf("?error=noPermsToManageGuild") != -1) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            },
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
         })
 
         Toast.fire({
-           icon: 'error',
-           title: `<% if(themeConfig.popupMsg){%><%-themeConfig.popupMsg.noPerms%><% } else{ %>Error<% } %>`
+            icon: 'error',
+            title: `<% if(themeConfig.popupMsg){ %><%- themeConfig.popupMsg.noPerms %><% } else{ %>Error<% } %>`
         })
     }
-  </script>
+</script>
 </body>
 
 </html>

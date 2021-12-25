@@ -4,15 +4,16 @@ Author: Wrappixel
 Email: niravjoshi87@gmail.com
 File: scss
 */
-@import '../variable'; 
+@import '../variable';
 
 
 /*******************
 google map Page
 ******************/
-.gmaps, .gmaps-panaroma{
+.gmaps, .gmaps-panaroma {
   height: 300px;
 }
+
 .gmaps, .gmaps-panaroma {
   height: 300px;
   background: $light;
@@ -51,6 +52,7 @@ google map Page
   border-right: 16px solid transparent;
   border-bottom: 16px solid $primary;
 }
+
 /*******************
 vector map Page
 ******************/
@@ -59,6 +61,7 @@ vector map Page
   height: 10px;
   line-height: 10px;
 }
+
 .jvectormap-zoomout {
-    top: 40px;
+  top: 40px;
 }

@@ -13,20 +13,20 @@ FAQs Page
 ******************/
 
 .minimal-faq {
-    .card {
-        border: 0px;
-        .card-header {
-            background: $white;
-            padding: 20px 0;
-            margin-top: 10px;
-        }
-        .card-body {
-            padding: 15px 0px;
-        }
+  .card {
+    border: 0px;
+
+    .card-header {
+      background: $white;
+      padding: 20px 0;
+      margin-top: 10px;
     }
+
+    .card-body {
+      padding: 15px 0px;
+    }
+  }
 }
-
-
 
 
 /*******************
@@ -34,26 +34,31 @@ Seach listing Page
 ******************/
 
 .search-listing {
-    padding: 0px;
-    margin: 0px;
-    li {
-        list-style: none;
-        padding: 15px 0;
-        border-bottom: 1px solid $border;
-        h3 {
-            margin: 0px;
-            font-size: 18px;
-            a {
-                color: $info;
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
+  padding: 0px;
+  margin: 0px;
+
+  li {
+    list-style: none;
+    padding: 15px 0;
+    border-bottom: 1px solid $border;
+
+    h3 {
+      margin: 0px;
+      font-size: 18px;
+
+      a {
+        color: $info;
+
+        &:hover {
+          text-decoration: underline;
         }
-        a {
-            color: $success;
-        }
+      }
     }
+
+    a {
+      color: $success;
+    }
+  }
 }
 
 
@@ -62,17 +67,16 @@ Gridstack Dragable portlet
 ******************/
 
 .grid-stack-item-content {
-    background: #fff;
-    color: #2b2b2b;
+  background: #fff;
+  color: #2b2b2b;
 
-    text-align: center;
-    font-size: 20px;
+  text-align: center;
+  font-size: 20px;
 }
 
-.grid-stack>.grid-stack-item>.grid-stack-item-content {
-    border: 1px solid $border;
+.grid-stack > .grid-stack-item > .grid-stack-item-content {
+  border: 1px solid $border;
 }
-
 
 
 /*******************
@@ -80,15 +84,15 @@ Grid page
 ******************/
 
 .show-grid {
-    margin-bottom: 10px;
-    padding: 0 15px
+  margin-bottom: 10px;
+  padding: 0 15px
 }
 
 .show-grid [class^=col-] {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border: 1px solid $form-brd;
-    background-color: $light;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid $form-brd;
+  background-color: $light;
 }
 
 
@@ -97,26 +101,25 @@ Date paginator page
 ******************/
 
 .dp-selected[style] {
-    background-color: $themecolor!important;
+  background-color: $themecolor !important;
 }
 
 .datepaginator-sm,
 .datepaginator-lg,
 .datepaginator {
 
-    .pagination {
-        li {
-            a {
-                padding: 0 5px;
-                height: 60px;
-                border: 1px solid $border;
-                float: left;
-                position: relative;
-            }
-        }
+  .pagination {
+    li {
+      a {
+        padding: 0 5px;
+        height: 60px;
+        border: 1px solid $border;
+        float: left;
+        position: relative;
+      }
     }
+  }
 }
-
 
 
 /*******************
@@ -124,27 +127,27 @@ Notification page Jquery toaster
 ******************/
 
 .jq-icon-info {
-    background-color: $info;
-    color: $white;
+  background-color: $info;
+  color: $white;
 }
 
 .jq-icon-success {
-    background-color: $success;
-    color: $white;
+  background-color: $success;
+  color: $white;
 }
 
 .jq-icon-error {
-    background-color: $danger;
-    color: $white;
+  background-color: $danger;
+  color: $white;
 }
 
 .jq-icon-warning {
-    background-color: $warning;
-    color: $white;
+  background-color: $warning;
+  color: $white;
 }
 
 .alert-rounded {
-    border-radius: 60px;
+  border-radius: 60px;
 }
 
 
@@ -153,24 +156,24 @@ list and media
 ******************/
 
 .list-group a.list-group-item:hover {
-    background: $light;
+  background: $light;
 }
 
 .list-group-item.active,
 .list-group .list-group-item.active:hover {
-    background: $themecolor;
-    border-color: $themecolor;
+  background: $themecolor;
+  border-color: $themecolor;
 }
 
 .list-group-item.disabled {
-    color: $muted;
-    background: $light;
+  color: $muted;
+  background: $light;
 }
 
 .media {
-    border: 1px solid $border;
-    margin-bottom: 10px;
-    padding: 15px;
+  border: 1px solid $border;
+  margin-bottom: 10px;
+  padding: 15px;
 }
 
 
@@ -179,9 +182,9 @@ list and media
 ******************/
 
 .plugin-details {
-    display: none;
+  display: none;
 }
 
 .plugin-details-active {
-    display: block;
+  display: block;
 }

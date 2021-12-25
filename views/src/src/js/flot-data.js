@@ -16,8 +16,7 @@ function getRandomData() {
             , y = prev + Math.random() * 10 - 5;
         if (y < 0) {
             y = 0;
-        }
-        else if (y > 100) {
+        } else if (y > 100) {
             y = 100;
         }
         data.push(y);
@@ -29,6 +28,7 @@ function getRandomData() {
     }
     return res;
 }
+
 // Set up the control widget
 var updateInterval = 30;
 $("#updateInterval").val(updateInterval).change(function () {
@@ -37,8 +37,7 @@ $("#updateInterval").val(updateInterval).change(function () {
         updateInterval = +v;
         if (updateInterval < 1) {
             updateInterval = 1;
-        }
-        else if (updateInterval > 3000) {
+        } else if (updateInterval > 3000) {
             updateInterval = 3000;
         }
         $(this).val("" + updateInterval);
@@ -75,6 +74,7 @@ function update() {
     plot.draw();
     setTimeout(update, updateInterval);
 }
+
 update();
 //Flot Line Chart
 $(document).ready(function () {
@@ -124,10 +124,11 @@ $(document).ready(function () {
         var plotObj = $.plot($("#flot-line-chart"), [{
             data: sin
             , label: "sin(x)"
-        , }, {
+            ,
+        }, {
             data: cos
             , label: "cos(x)"
-            }], options);
+        }], options);
     }
 });
 //Flot Pie Chart
@@ -136,19 +137,23 @@ $(function () {
         label: "Series 0"
         , data: 10
         , color: "#4f5467"
-    , }, {
+        ,
+    }, {
         label: "Series 1"
         , data: 1
         , color: "#26c6da"
-    , }, {
+        ,
+    }, {
         label: "Series 2"
         , data: 3
         , color: "#009efb"
-    , }, {
+        ,
+    }, {
         label: "Series 3"
         , data: 1
         , color: "#7460ee"
-    , }];
+        ,
+    }];
     var plotObj = $.plot($("#flot-pie-chart"), data, {
         series: {
             pie: {
@@ -196,6 +201,7 @@ $(function () {
         }
         return res;
     }
+
     //
     series = [{
         data: getRandomData()

@@ -1,36 +1,42 @@
 <footer class="footer">
     <div class=" container-fluid ">
-      <nav>
-        <ul>
-          <li>
-            <a href="/" class="<%if(now == 'index'){%>bluey<%}%>">
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a href="/manage/" class="<%if(now == 'manage'){%>bluey<%}%>">
-              Manage Guilds
-            </a>
-          </li>
-          <li>
-            <% if(themeConfig.commands.href){%><a href="<%-themeConfig.commands.href%>" class="<%if(now == 'commands'){%>bluey<%}%>"><% } else{ %><a href="/commands"  class="<%if(now == 'commands'){%>bluey<%}%>"><% } %>
-              Commands
-            </a>
-          </li>
-          <li>
-            <a href="/privacy-policy/" class="<%if(now == 'pp'){%>bluey<%}%>">
-              Privacy Policy
-            </a>
-          </li>
-          <div class="copyright" id="copyright">
-            &copy;
-            <script>
-              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Created by <a href='<%=themeConfig.information.websiteUrl%>' target="_blank" class="bluey"><%=themeConfig.information.createdBy%></a>
-          </div>
-        </ul>
-        
-      </nav>
-     
+        <nav>
+            <ul>
+                <li>
+                    <a href="/" class="<% if(now == 'index'){ %>bluey<% } %>">
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/manage/" class="<% if(now == 'manage'){ %>bluey<% } %>">
+                        Manage Guilds
+                    </a>
+                </li>
+                <li>
+                    <% if(themeConfig.commands.href){ %>
+                    <a href="<%- themeConfig.commands.href %>" class="<% if(now == 'commands'){ %>bluey<% } %>">
+                        <% } else{ %>
+                        <a href="/commands" class="<% if(now == 'commands'){ %>bluey<% } %>">
+                            <% } %>
+                            Commands
+                        </a>
+                </li>
+                <li>
+                    <a href="/privacy-policy/" class="<% if(now == 'pp'){ %>bluey<% } %>">
+                        Privacy Policy
+                    </a>
+                </li>
+                <div class="copyright" id="copyright">
+                    &copy;
+                    <script>
+                        document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+                    </script>
+                    , Created by <a href='<%= themeConfig.information.websiteUrl %>' target="_blank"
+                                    class="bluey"><%= themeConfig.information.createdBy %></a>
+                </div>
+            </ul>
+
+        </nav>
+
     </div>
-  </footer>
+</footer>

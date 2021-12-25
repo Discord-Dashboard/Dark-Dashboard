@@ -8,7 +8,7 @@
 }
 
 .stats {
-    color: #9A9A9A !important; 
+    color: #9A9A9A !important;
 }
 
 .card-title {
@@ -19,7 +19,7 @@
     background: rgb(24, 26, 27);
 }
 
-.sidebar .nav li.active>a, .off-canvas-sidebar .nav li.active>a {
+.sidebar .nav li.active > a, .off-canvas-sidebar .nav li.active > a {
     background-color: rgb(32, 34, 36);
     box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
 }
@@ -60,13 +60,13 @@ code {
     display: none;
 }
 
-.main-panel>.content {
+.main-panel > .content {
     padding: 0 30px 30px !important;
     min-height: calc(100vh - 179px) !important;
     margin-top: -30px !important;
 }
 
-.sidebar .nav li>a, .off-canvas-sidebar .nav li>a {
+.sidebar .nav li > a, .off-canvas-sidebar .nav li > a {
     border-radius: 10px;
 }
 
@@ -91,7 +91,7 @@ select {
     border-radius: 15px !important;
 }
 
-input, textarea, select{
+input, textarea, select {
     background-color: #101112 !important;
     border: none;
     border-radius: 5px !important;
@@ -118,6 +118,7 @@ input, textarea, select{
 .swal2-footer {
     text-align: center;
 }
+
 .swal2-footer {
     justify-content: center;
     margin: 1em 0 0;
