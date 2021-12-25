@@ -1,23 +1,7 @@
-<!--
-   =========================================================
-   * Now UI Dashboard - v1.5.0
-   =========================================================
-   
-   * Product Page: https://www.creative-tim.com/product/now-ui-dashboard
-   * Copyright 2019 Creative Tim (http://www.creative-tim.com)
-   
-   * Designed by www.invisionapp.com Coded by www.creative-tim.com
-   
-   =========================================================
-   
-   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-   
-   -->
 <!DOCTYPE html>
 <html lang="en" id="perfect-scrollbar-on" class="perfect-scrollbar-on">
 <head>
     <meta charset="utf-8"/>
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href=<%= themeConfig.information.imageFavicon %>>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>
@@ -31,8 +15,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- CSS Files -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet"/>
+    <link href="../views/src/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../views/src/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet"/>
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="./src/css/theme.css" id="theme" rel="stylesheet">
     <link href="./src/css/darkreader.css" id="theme" rel="stylesheet">
@@ -310,13 +294,13 @@
                             <h4 class="card-title">
                                 <img style="margin-bottom: 5px;" src="src/assets/images/info_white_24dp.svg">
                                 <% if(themeConfig.guildInfo){ %>
-                                <%- themeConfig.guildInfo.cardTitle %>
+                                    <%- themeConfig.guildInfo.cardTitle %>
                                 <% } else{ %>Server Information
                                 <% } %>
                             </h4>
                             <h5 class="card-category">
                                 <% if(themeConfig.guildInfo){ %>
-                                <%- themeConfig.guildInfo.cardDescription %>
+                                    <%- themeConfig.guildInfo.cardDescription %>
                                 <% } else{ %>An overview about your server
                                 <% } %>
                             </h5>
@@ -381,10 +365,10 @@
                 <div class="col-md-12">
                     <div class="card">
                         <% if(themeConfig.guildSettings){ %>
-                        <div class="card-header">
-                            <h4 class="card-title"><%- themeConfig.guildSettings.cardTitle %></h4>
-                            <p class="category"><%- themeConfig.guildSettings.cardDescription %></p>
-                        </div>
+                            <div class="card-header">
+                                <h4 class="card-title"><%- themeConfig.guildSettings.cardTitle %></h4>
+                                <p class="category"><%- themeConfig.guildSettings.cardDescription %></p>
+                            </div>
                         <% } %>
                         <div class="card-body">
                             <div class="table-responsive no-wrap">
@@ -431,15 +415,15 @@
                                         };
                                     </script>
                                 <% }else{ %>
-                                <script>
-                                    window.onload = function () {
-                                        Swal.fire({
-                                            icon: 'error',
-                                            title: 'Error saving your settings',
-                                            html: `<% errors.forEach(e=>{ %><%= e.split('%is%')[0] %>: <%= e.split('%is%')[1] %><br> <% }) %>`
-                                        })
-                                    };
-                                </script>
+                                    <script>
+                                        window.onload = function () {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Error saving your settings',
+                                                html: `<% errors.forEach(e=>{ %><%= e.split('%is%')[0] %>: <%= e.split('%is%')[1] %><br> <% }) %>`
+                                            })
+                                        };
+                                    </script>
                                 <% } %>
                                 <div class="tab-content" id="nav-tabContent">
                                     <%
@@ -455,23 +439,23 @@
                                             s.categoryOptionsList.forEach(option=>{ %>
                                                 <%
                                                 if(option.optionType.type == "select"){ %>
-                                                <h4 style="margin-top: 30px;"><%- option.optionName %></h4>
-                                                <%- option.optionDescription %><br>
-                                                <select class="col-md-12" <% if(option.optionType.disabled){ %>disabled
-                                                        <% } %>
-                                                        name="<%= option.optionId %>" class="col-md-12"
-                                                        style="height:30px;">
-                                                    <%
-                                                        let ioo = 0;
-                                                    option.optionType.data.values.forEach(value=>{ %>
-                                                    <option value="<%= value %>"
-                                                            <% if(actual[s.categoryId][option.optionId] == value){ %>selected
+                                                    <h4 style="margin-top: 30px;"><%- option.optionName %></h4>
+                                                    <%- option.optionDescription %><br>
+                                                    <select class="col-md-12" <% if(option.optionType.disabled){ %>disabled
                                                             <% } %>
-                                                    ><%= option.optionType.data.keys[ioo] %></option>
-                                                    <%
-                                                        ioo++;
-                                                    }) %>
-                                                </select>
+                                                            name="<%= option.optionId %>" class="col-md-12"
+                                                            style="height:30px;">
+                                                        <%
+                                                            let ioo = 0;
+                                                        option.optionType.data.values.forEach(value=>{ %>
+                                                            <option value="<%= value %>"
+                                                                    <% if(actual[s.categoryId][option.optionId] == value){ %>selected
+                                                                    <% } %>
+                                                            ><%= option.optionType.data.keys[ioo] %></option>
+                                                        <%
+                                                            ioo++;
+                                                        }) %>
+                                                    </select>
                                                 <% }else if(option.optionType.type == "checkbox"){
                                                     let val = "";
                                                 %>
@@ -505,208 +489,208 @@
                                                 <hr>
                                                 <% }else if(option.optionType.type == "channelsMultiSelect" || option.optionType.type == "rolesMultiSelect"){ %>
 
-                                                <h4><%- option.optionName %></h4>
-                                                <%- option.optionDescription %><br>
-                                                <select placeholder="Select" class="js-example-basic-multiple"
-                                                        <% if(option.optionType.disabled){ %>disabled
-                                                        <% } %>
-                                                        required name="<%= option.optionId %>"
-                                                        style="width:100%;background: #f9f9ff;border-color: #f9f9ff;"
-                                                        multiple="multiple">
-                                                    <%
-                                                        let ioooooo = 0;
-                                                        let functiona = option.optionType.function(bot, guildid);
-                                                    functiona.values.forEach(value=>{ %>
-                                                    <option value="<%= value %>"
-                                                            <% if(actual[s.categoryId][option.optionId].includes(value)){ %>selected
+                                                    <h4><%- option.optionName %></h4>
+                                                    <%- option.optionDescription %><br>
+                                                    <select placeholder="Select" class="js-example-basic-multiple"
+                                                            <% if(option.optionType.disabled){ %>disabled
                                                             <% } %>
-                                                    ><%= functiona.keys[ioooooo] %></option>
-                                                    <%
-                                                        ioooooo++;
-                                                    }) %>
-                                                </select>
-                                                <br>
-                                                <hr>
+                                                            required name="<%= option.optionId %>"
+                                                            style="width:100%;background: #f9f9ff;border-color: #f9f9ff;"
+                                                            multiple="multiple">
+                                                        <%
+                                                            let ioooooo = 0;
+                                                            let functiona = option.optionType.function(bot, guildid);
+                                                        functiona.values.forEach(value=>{ %>
+                                                            <option value="<%= value %>"
+                                                                    <% if(actual[s.categoryId][option.optionId].includes(value)){ %>selected
+                                                                    <% } %>
+                                                            ><%= functiona.keys[ioooooo] %></option>
+                                                        <%
+                                                            ioooooo++;
+                                                        }) %>
+                                                    </select>
+                                                    <br>
+                                                    <hr>
                                                 <%
                                                 }
                                                 else if(option.optionType == "spacer") { %>
 
-                                                <h3><b><%= option.title %></b></h3>
-                                                <%= option.description %>
-                                                <br>
-                                                <hr>
+                                                    <h3><b><%= option.title %></b></h3>
+                                                    <%= option.description %>
+                                                    <br>
+                                                    <hr>
                                                 <% }
                                                 else if(option.optionType.type == "multiSelect") {
                                                 %>
 
-                                                <h4><%- option.optionName %></h4>
-                                                <%- option.optionDescription %>
-                                                <br>
-                                                <select placeholder="Select" class="js-example-basic-multiple"
-                                                        <% if(option.optionType.disabled){ %>disabled
-                                                        <% } %>
-                                                        <% if(option.optionType.required){ %>required
-                                                        <% } %>
-                                                        name="<%= option.optionId %>"
-                                                        style="width:100%;background: #f9f9ff;border-color: #f9f9ff;"
-                                                        class="col-md-12" multiple="multiple">
-                                                    <%
-                                                        let ioo = 0;
-                                                    option.optionType.data.values.forEach(value => {
-                                                    %>
-                                                    <option value="<%= value %>"
-                                                    <% if(actual[s.categoryId][option.optionId].includes(value)) { %>
-                                                            selected
-                                                            <% }
-                                                            %>
-                                                    >
-                                                        <%= option.optionType.data.keys[ioo] %>
-                                                    </option>
-                                                    <%
-                                                        ioo++;
-                                                    })
-                                                    %>
-                                                </select>
-                                                <br>
-                                                <hr>
+                                                    <h4><%- option.optionName %></h4>
+                                                    <%- option.optionDescription %>
+                                                    <br>
+                                                    <select placeholder="Select" class="js-example-basic-multiple"
+                                                            <% if(option.optionType.disabled){ %>disabled
+                                                            <% } %>
+                                                            <% if(option.optionType.required){ %>required
+                                                            <% } %>
+                                                            name="<%= option.optionId %>"
+                                                            style="width:100%;background: #f9f9ff;border-color: #f9f9ff;"
+                                                            class="col-md-12" multiple="multiple">
+                                                        <%
+                                                            let ioo = 0;
+                                                        option.optionType.data.values.forEach(value => {
+                                                        %>
+                                                            <option value="<%= value %>"
+                                                            <% if(actual[s.categoryId][option.optionId].includes(value)) { %>
+                                                                    selected
+                                                                    <% }
+                                                                    %>
+                                                            >
+                                                                <%= option.optionType.data.keys[ioo] %>
+                                                            </option>
+                                                        <%
+                                                            ioo++;
+                                                        })
+                                                        %>
+                                                    </select>
+                                                    <br>
+                                                    <hr>
                                                 <% }else if(option.optionType.type == "input"){
                                                 %>
 
-                                                <h4><%- option.optionName %></h4>
-                                                <%- option.optionDescription %><br>
-                                                <input style="border:none;height:30px;" class="col-md-12"
-                                                       name="<%= option.optionId %>"
-                                                       <% if(option.optionType.required){ %>required
-                                                        <% } %>
-                                                       <% if(option.optionType.disabled){ %>disabled
-                                                        <% } %>
-                                                       placeholder="<%= option.optionType.data %>"
-                                                       <% if(actual[s.categoryId][option.optionId]){ %>value="<%= actual[s.categoryId][option.optionId] %>"
-                                                        <% } %>
-                                                       <% if(option.optionType.min){ %>minlength="<%= option.optionType.min %>"
-                                                        <% } %>
-                                                       <% if(option.optionType.max){ %>maxlength="<%= option.optionType.max %>"
-                                                        <% } %>
-                                                />
-                                                <br>
-                                                <hr>
+                                                    <h4><%- option.optionName %></h4>
+                                                    <%- option.optionDescription %><br>
+                                                    <input style="border:none;height:30px;" class="col-md-12"
+                                                           name="<%= option.optionId %>"
+                                                           <% if(option.optionType.required){ %>required
+                                                            <% } %>
+                                                           <% if(option.optionType.disabled){ %>disabled
+                                                            <% } %>
+                                                           placeholder="<%= option.optionType.data %>"
+                                                           <% if(actual[s.categoryId][option.optionId]){ %>value="<%= actual[s.categoryId][option.optionId] %>"
+                                                            <% } %>
+                                                           <% if(option.optionType.min){ %>minlength="<%= option.optionType.min %>"
+                                                            <% } %>
+                                                           <% if(option.optionType.max){ %>maxlength="<%= option.optionType.max %>"
+                                                            <% } %>
+                                                    />
+                                                    <br>
+                                                    <hr>
                                                 <% }else if(option.optionType.type == "twoInputs"){
                                                 %>
-                                                <h4><%- option.optionName %></h4>
-                                                <%= option.optionDescription %>
-                                                <br>
-                                                <div style="display: inline-block; width: 100%;">
-                                                    <input style="border:none;height:30px; width: 30%; display: inline-table;"
-                                                           class="col-md-12" name="<%= option.optionId %>"
-                                                           <% if(option.optionType.required){ %>required
-                                                            <% } %>
-                                                           <% if(option.optionType.disabled){ %>disabled
-                                                            <% } %>
-                                                           placeholder="<%= option.optionType.data[0] %>"
-                                                           <% if(actual[s.categoryId][option.optionId]){ %>value="<%= actual[s.categoryId][option.optionId][0] %>"
-                                                            <% } %>
-                                                           <% if(option.optionType.min){ %>minlength="<%= option.optionType.min %>"
-                                                            <% } %>
-                                                           <% if(option.optionType.max){ %>maxlength="<%= option.optionType.max %>"
-                                                            <% } %>
-                                                    />
-                                                    <p style="display: inline-table; margin-left: 10px; margin-right: 10px; font-weight: bold;"><%= option.optionType.separator %></p>
-                                                    <input style="border:none;height:30px; display: inline-table; width: 30%;"
-                                                           class="col-md-12" name="<%= option.optionId %>"
-                                                           <% if(option.optionType.required){ %>required
-                                                            <% } %>
-                                                           <% if(option.optionType.disabled){ %>disabled
-                                                            <% } %>
-                                                           placeholder="<%= option.optionType.data[1] %>"
-                                                           <% if(actual[s.categoryId][option.optionId]){ %>value="<%= actual[s.categoryId][option.optionId][1] %>"
-                                                            <% } %>
-                                                           <% if(option.optionType.min){ %>minlength="<%= option.optionType.min %>"
-                                                            <% } %>
-                                                           <% if(option.optionType.max){ %>maxlength="<%= option.optionType.max %>"
-                                                            <% } %>
-                                                    />
-                                                </div>
-                                                <br>
-                                                <hr>
+                                                    <h4><%- option.optionName %></h4>
+                                                    <%= option.optionDescription %>
+                                                    <br>
+                                                    <div style="display: inline-block; width: 100%;">
+                                                        <input style="border:none;height:30px; width: 30%; display: inline-table;"
+                                                               class="col-md-12" name="<%= option.optionId %>"
+                                                               <% if(option.optionType.required){ %>required
+                                                                <% } %>
+                                                               <% if(option.optionType.disabled){ %>disabled
+                                                                <% } %>
+                                                               placeholder="<%= option.optionType.data[0] %>"
+                                                               <% if(actual[s.categoryId][option.optionId]){ %>value="<%= actual[s.categoryId][option.optionId][0] %>"
+                                                                <% } %>
+                                                               <% if(option.optionType.min){ %>minlength="<%= option.optionType.min %>"
+                                                                <% } %>
+                                                               <% if(option.optionType.max){ %>maxlength="<%= option.optionType.max %>"
+                                                                <% } %>
+                                                        />
+                                                        <p style="display: inline-table; margin-left: 10px; margin-right: 10px; font-weight: bold;"><%= option.optionType.separator %></p>
+                                                        <input style="border:none;height:30px; display: inline-table; width: 30%;"
+                                                               class="col-md-12" name="<%= option.optionId %>"
+                                                               <% if(option.optionType.required){ %>required
+                                                                <% } %>
+                                                               <% if(option.optionType.disabled){ %>disabled
+                                                                <% } %>
+                                                               placeholder="<%= option.optionType.data[1] %>"
+                                                               <% if(actual[s.categoryId][option.optionId]){ %>value="<%= actual[s.categoryId][option.optionId][1] %>"
+                                                                <% } %>
+                                                               <% if(option.optionType.min){ %>minlength="<%= option.optionType.min %>"
+                                                                <% } %>
+                                                               <% if(option.optionType.max){ %>maxlength="<%= option.optionType.max %>"
+                                                                <% } %>
+                                                        />
+                                                    </div>
+                                                    <br>
+                                                    <hr>
                                                 <% } else if(option.optionType.type == "textarea"){ %>
-                                                <h4><%- option.optionName %></h4>
-                                                <%- option.optionDescription %><br>
-                                                <textarea name="<%= option.optionId %>"
-                                                          <% if(option.optionType.required){ %>required
+                                                    <h4><%- option.optionName %></h4>
+                                                    <%- option.optionDescription %><br>
+                                                    <textarea name="<%= option.optionId %>"
+                                                              <% if(option.optionType.required){ %>required
+                                                            <% } %>
+                                                              <% if(option.optionType.disabled){ %>disabled
+                                                            <% } %>
+                                                              placeholder="<%= option.optionType.data %>"
+                                                              <% if(actual[s.categoryId][option.optionId]){ %>value="<%= actual[s.categoryId][option.optionId] %>"
+                                                            <% } %>
+                                                              <% if(option.optionType.min){ %>minlength="<%= option.optionType.min %>"
+                                                            <% } %>
+                                                              <% if(option.optionType.max){ %>maxlength="<%= option.optionType.max %>"
+                                                            <% } %>
+                                                              rows="4" class="col-md-12">
+                                                        <% if(actual[s.categoryId][option.optionId]){ %>
+                                                            <%= actual[s.categoryId][option.optionId] %>
                                                         <% } %>
-                                                          <% if(option.optionType.disabled){ %>disabled
-                                                        <% } %>
-                                                          placeholder="<%= option.optionType.data %>"
-                                                          <% if(actual[s.categoryId][option.optionId]){ %>value="<%= actual[s.categoryId][option.optionId] %>"
-                                                        <% } %>
-                                                          <% if(option.optionType.min){ %>minlength="<%= option.optionType.min %>"
-                                                        <% } %>
-                                                          <% if(option.optionType.max){ %>maxlength="<%= option.optionType.max %>"
-                                                        <% } %>
-                                                          rows="4" class="col-md-12">
-                                                    <% if(actual[s.categoryId][option.optionId]){ %>
-                                                    <%= actual[s.categoryId][option.optionId] %>
-                                                    <% } %>
-                                                </textarea>
-                                                <br>
-                                                <hr>
+                                                    </textarea>
+                                                    <br>
+                                                    <hr>
                                                 <% }else if(option.optionType.type == "channelsSelect"){ %>
 
-                                                <h4><%- option.optionName %></h4>
-                                                <%- option.optionDescription %><br>
-                                                <select <% if(option.optionType.disabled){ %>disabled
-                                                        <% } %>
-                                                        name="<%= option.optionId %>" class="col-md-12"
-                                                        style="height:30px;">
-                                                    <%
-                                                        let ioooooo = 0;
-                                                        let functiona = option.optionType.function(bot, guildid);
-                                                    functiona.values.forEach(value=>{ %>
-
-                                                    <option value="<%= value %>"
-                                                            <% if(actual[s.categoryId][option.optionId] == value){ %>selected
+                                                    <h4><%- option.optionName %></h4>
+                                                    <%- option.optionDescription %><br>
+                                                    <select <% if(option.optionType.disabled){ %>disabled
                                                             <% } %>
-                                                    ><%= functiona.keys[ioooooo] %></option>
-                                                    <%
-                                                        ioooooo++;
-                                                    }) %>
-                                                </select>
-                                                <br>
-                                                <hr>
+                                                            name="<%= option.optionId %>" class="col-md-12"
+                                                            style="height:30px;">
+                                                        <%
+                                                            let ioooooo = 0;
+                                                            let functiona = option.optionType.function(bot, guildid);
+                                                        functiona.values.forEach(value=>{ %>
+
+                                                            <option value="<%= value %>"
+                                                                    <% if(actual[s.categoryId][option.optionId] == value){ %>selected
+                                                                    <% } %>
+                                                            ><%= functiona.keys[ioooooo] %></option>
+                                                        <%
+                                                            ioooooo++;
+                                                        }) %>
+                                                    </select>
+                                                    <br>
+                                                    <hr>
                                                 <% }else if(option.optionType.type == "rolesSelect"){ %>
 
-                                                <h4><%- option.optionName %></h4>
-                                                <%- option.optionDescription %><br>
-                                                <select <% if(option.optionType.disabled){ %>disabled
-                                                        <% } %>
-                                                        name="<%= option.optionId %>" class="col-md-12"
-                                                        style="height:30px;">
-                                                    <%
-                                                        let iooooooo = 0;
-                                                        let functiona = option.optionType.function(bot, guildid);
-                                                    functiona.values.forEach(value=>{ %>
-                                                    <option value="<%= value %>"
-                                                            <% if(actual[s.categoryId][option.optionId] == value){ %>selected
+                                                    <h4><%- option.optionName %></h4>
+                                                    <%- option.optionDescription %><br>
+                                                    <select <% if(option.optionType.disabled){ %>disabled
                                                             <% } %>
-                                                    ><%= functiona.keys[iooooooo] %></option>
-                                                    <%
-                                                        iooooooo++;
-                                                    }) %>
-                                                </select>
-                                                <br>
-                                                <hr>
+                                                            name="<%= option.optionId %>" class="col-md-12"
+                                                            style="height:30px;">
+                                                        <%
+                                                            let iooooooo = 0;
+                                                            let functiona = option.optionType.function(bot, guildid);
+                                                        functiona.values.forEach(value=>{ %>
+                                                            <option value="<%= value %>"
+                                                                    <% if(actual[s.categoryId][option.optionId] == value){ %>selected
+                                                                    <% } %>
+                                                            ><%= functiona.keys[iooooooo] %></option>
+                                                        <%
+                                                            iooooooo++;
+                                                        }) %>
+                                                    </select>
+                                                    <br>
+                                                    <hr>
                                                 <% }else if(option.optionType.type == "colorSelect"){ %>
 
-                                                <h4><%- option.optionName %></h4>
-                                                <%- option.optionDescription %><br>
-                                                <input type="color" id="<%= option.optionId %>"
-                                                       name="<%= option.optionId %>"
-                                                       value="<%= actual[s.categoryId][option.optionId] || option.optionType.data || "#ffffff" %>"
-                                                       <% if(option.optionType.disabled){ %>disabled
-                                                        <% } %>
-                                                >
-                                                <br>
-                                                <hr>
+                                                    <h4><%- option.optionName %></h4>
+                                                    <%- option.optionDescription %><br>
+                                                    <input type="color" id="<%= option.optionId %>"
+                                                           name="<%= option.optionId %>"
+                                                           value="<%= actual[s.categoryId][option.optionId] || option.optionType.data || "#ffffff" %>"
+                                                           <% if(option.optionType.disabled){ %>disabled
+                                                            <% } %>
+                                                    >
+                                                    <br>
+                                                    <hr>
                                                 <% } %>
                                             <% })
                                             %>
@@ -734,28 +718,12 @@
         element.classList.toggle("nav-open");
     }
 </script>
-<script src="../assets/js/core/jquery.min.js"></script>
-<script src="../assets/js/core/popper.min.js"></script>
-<script src="../assets/js/core/bootstrap.min.js"></script>
-<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<!-- Chart JS -->
-<script src="../assets/js/plugins/chartjs.min.js"></script>
-<!--  Notifications Plugin    -->
-<script src="../assets/js/plugins/bootstrap-notify.js"></script>
-<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
-<!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-<script src="../assets/demo/demo.js"></script>
-<script src="assets/node_modules/jquery/jquery.min.js"></script>
-<script src="assets/node_modules/bootstrap/js/popper.min.js"></script>
-<script src="assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
-<script src="js/perfect-scrollbar.jquery.min.js"></script>
-<script src="js/waves.js"></script>
-<script src="js/sidebarmenu.js"></script>
-<script src="js/custom.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
+<script src="../views/src/js/core/jquery.min.js"></script>
+<script src="../views/src/js/core/popper.min.js"></script>
+<script src="../views/src/js/core/bootstrap.min.js"></script>
+<script src="../views/src/js/perfect_scrollbar.js"></script>
+<script src="../views/src/js/plugins/chartjs.min.js"></script>
+<script src="../views/src/js/plugins/bootstrap-notify.js"></script>
 <script>
     function removeAllChildNodes(parent) {
         for (let i in [0, 1, 2, 3]) {
