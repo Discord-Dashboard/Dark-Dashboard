@@ -465,7 +465,8 @@
                                                     <span class="checkmark round"></span>
                                                 </label>
                                                 <br>
-                                                <hr>
+                                                <% if(!option.removeDivider){ %><hr><% } %>
+                                                
                                                 <% }else if(option.optionType.type == "switch"){
                                                     let val = "";
                                                     if (actual[s.categoryId][option.optionId]) val = "checked";
@@ -481,7 +482,7 @@
                                                     <span class="tslider round"></span>
                                                 </label>
                                                 <br>
-                                                <hr>
+                                                <% if(!option.removeDivider){ %><hr><% } %>
                                                 <% }else if(option.optionType.type == "channelsMultiSelect" || option.optionType.type == "rolesMultiSelect"){ %>
 
                                                     <h4><%- option.optionName %></h4>
@@ -505,7 +506,7 @@
                                                         }) %>
                                                     </select>
                                                     <br>
-                                                    <hr>
+                                                    <% if(!option.removeDivider){ %><hr><% } %>
                                                 <%
                                                 }
                                                 else if(option.optionType == "spacer") { %>
@@ -513,7 +514,7 @@
                                                     <h3><b><%= option.title %></b></h3>
                                                     <%= option.description %>
                                                     <br>
-                                                    <hr>
+                                                    <% if(!option.removeDivider){ %><hr><% } %>
                                                 <% }
                                                 else if(option.optionType.type == "multiSelect") {
                                                 %>
@@ -547,7 +548,7 @@
                                                         %>
                                                     </select>
                                                     <br>
-                                                    <hr>
+                                                    <% if(!option.removeDivider){ %><hr><% } %>
                                                 <% }else if(option.optionType.type == "input"){
                                                 %>
 
@@ -568,7 +569,7 @@
                                                             <% } %>
                                                     />
                                                     <br>
-                                                    <hr>
+                                                    <% if(!option.removeDivider){ %><hr><% } %>
                                                 <% }else if(option.optionType.type == "twoInputs"){
                                                 %>
                                                     <h4><%- option.optionName %></h4>
@@ -606,7 +607,7 @@
                                                         />
                                                     </div>
                                                     <br>
-                                                    <hr>
+                                                    <% if(!option.removeDivider){ %><hr><% } %>
                                                 <% } else if(option.optionType.type == "textarea"){ %>
                                                     <h4><%- option.optionName %></h4>
                                                     <%- option.optionDescription %><br>
@@ -628,7 +629,7 @@
                                                         <% } %>
                                                     </textarea>
                                                     <br>
-                                                    <hr>
+                                                    <% if(!option.removeDivider){ %><hr><% } %>
                                                 <% }else if(option.optionType.type == "channelsSelect"){ %>
 
                                                     <h4><%- option.optionName %></h4>
@@ -651,7 +652,7 @@
                                                         }) %>
                                                     </select>
                                                     <br>
-                                                    <hr>
+                                                    <% if(!option.removeDivider){ %><hr><% } %>
                                                 <% }else if(option.optionType.type == "rolesSelect"){ %>
 
                                                     <h4><%- option.optionName %></h4>
@@ -673,7 +674,7 @@
                                                         }) %>
                                                     </select>
                                                     <br>
-                                                    <hr>
+                                                    <% if(!option.removeDivider){ %><hr><% } %>
                                                 <% }else if(option.optionType.type == "colorSelect"){ %>
 
                                                     <h4><%- option.optionName %></h4>
@@ -685,7 +686,7 @@
                                                             <% } %>
                                                     >
                                                     <br>
-                                                    <hr>
+                                                    <% if(!option.removeDivider){ %><hr><% } %>
                                                 <% } %>
                                             <% })
                                             %>
