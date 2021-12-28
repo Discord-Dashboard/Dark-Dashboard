@@ -32,9 +32,9 @@ module.exports = (themeConfig = {}) => {
                 onlineFiles.guilds = await onlineFiles.guilds.text();
 
                 let localFiles = {
-                    index: await fs.readFileSync('./views/index.ejs', 'utf-8'),
-                    guild: await fs.readFileSync('./views/guild.ejs', 'utf-8'),
-                    guilds: await fs.readFileSync('./views/guilds.ejs', 'utf-8')
+                    index: await fs.readFileSync(__dirname + '/views/index.ejs', 'utf-8'),
+                    guild: await fs.readFileSync(__dirname + '/views/guild.ejs', 'utf-8'),
+                    guilds: await fs.readFileSync(__dirname + '/views/guilds.ejs', 'utf-8')
                 }
                 
                 
