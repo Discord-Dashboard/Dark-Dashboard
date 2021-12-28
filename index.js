@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+const fs = require('fs');
 module.exports = (themeConfig = {}) => {
     return {
         viewsPath: require('path').join(__dirname, '/views'),
@@ -12,6 +14,31 @@ module.exports = (themeConfig = {}) => {
             });
             app.use('/privacy-policy', (req, res) => {
                 res.render('pp', {req: req, config: config, themeConfig: themeConfig});
+            });
+            app.use('/debug', async(req, res) => {
+                /*
+                If you are modifying the theme, please do not remove this page.
+                It will be used with support in the discord server.
+                */
+                
+                let onlineFiles = {
+                    index: await fetch(`https://adn.siondevelopment.xyz/dbd-dark/src/ejs/index.ejs`),
+                    guild: await fetch(`https://adn.siondevelopment.xyz/dbd-dark/src/ejs/guild.ejs`),
+                    guilds: await fetch(`https://adn.siondevelopment.xyz/dbd-dark/src/ejs/guilds.ejs`)
+                }
+                
+                onlineFiles.index = await onlineFiles.index.text();
+                onlineFiles.guild = await onlineFiles.guild.text();
+                onlineFiles.guilds = await onlineFiles.guilds.text();
+
+                let localFiles = {
+                    index: await fs.readFileSync('./views/index.ejs', 'utf-8'),
+                    guild: await fs.readFileSync('./views/guild.ejs', 'utf-8'),
+                    guilds: await fs.readFileSync('./views/guilds.ejs', 'utf-8')
+                }
+                
+                
+                res.render('debug', {bot: config.bot, req: req, config: config, rawUptime: process.uptime(), onlineFiles, localFiles, nodeVersion: process.version, themeConfig: themeConfig, discordVersion: require('discord.js').version, dbdVersion: require('./node_modules/discord-dashboard/package.json').version, themeVersion: require('./package.json').version});
             });
         }
     };

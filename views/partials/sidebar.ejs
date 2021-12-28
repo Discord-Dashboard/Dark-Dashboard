@@ -88,13 +88,13 @@
                                 src="<%= req.session.user.avatarURL || "https://w5fc.org/wp-content/uploads/2021/05/s9biyhs4lix61.jpg" %>"
                                 alt="user" class=""/><span
                                 class="profile-pic"><b><%= req.session.user.username %> </b><span
-                                    style="cursor:pointer;color:#2CA8FF;" onclick="window.location = '/discord/logout'"> &nbsp;&nbsp;Log out</span> &nbsp;&nbsp;</span></a>
+                                    style="cursor:pointer;color:<%-themeConfig.information.mainColor%>;" onclick="window.location = '/discord/logout'"> &nbsp;&nbsp;Log out</span> &nbsp;&nbsp;</span></a>
                 <% }else{ %>
                 <span style="cursor: pointer;" class="nav-link waves-effect waves-dark profile-pic"
                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
                             style="width: 25px; height: 25px; margin-right: 5px;"
                             src="https://w5fc.org/wp-content/uploads/2021/05/s9biyhs4lix61.jpg" alt="user"
-                            class=""/> <span class="profile-pic">  </b><span style="cursor:pointer;color:#2CA8FF;"
+                            class=""/> <span class="profile-pic">  </b><span style="cursor:pointer;color:<%-themeConfig.information.mainColor%>;"
                                                                              onclick="window.location = '/discord'">Log in</span></span>
                     <% } %>
                     </a>

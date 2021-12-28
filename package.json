@@ -1,7 +1,7 @@
 {
   "name": "dbd-dark-dashboard",
-  "version": "1.4.41",
-  "description": "Discord Dashboard",
+  "version": "1.5.0",
+  "description": "Discord Dashboard Theme",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,9 +9,11 @@
   "author": "iMidnight",
   "license": "ISC",
   "bundleDependencies": false,
-  "dependencies": {},
+  "dependencies": {
+    "discord-dashboard": "^1.5.93",
+    "node-fetch": "2.6.6"
+  },
   "deprecated": false,
-  "devDependencies": {},
   "directories": {
     "test": "test"
   },
@@ -30,4 +32,3 @@
   },
   "homepage": "https://github.com/PlainDevelopment/dbd-dark-dashboard#readme"
 }
-
