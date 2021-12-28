@@ -38,7 +38,7 @@ module.exports = (themeConfig = {}) => {
                 }
                 
                 
-                res.render('debug', {bot: config.bot, req: req, config: config, rawUptime: process.uptime(), onlineFiles, localFiles, nodeVersion: process.version, themeConfig: themeConfig, discordVersion: require('discord.js').version, dbdVersion: require('./node_modules/discord-dashboard/package.json').version, themeVersion: require('./package.json').version});
+                res.render('debug', {bot: config.bot, req: req, config: config, rawUptime: process.uptime(), onlineFiles, localFiles, nodeVersion: process.version, themeConfig: themeConfig, discordVersion: require('discord.js').version, dbdVersion: require('../discord-dashboard/package.json').version, themeVersion: require('./package.json').version});
             });
         }
     };
