@@ -382,7 +382,7 @@
                                     </div>
                                 </nav>
                                 <% if(successes == null && errors == null){ %>
-                                <% }else if(req.query.success == 'true' && req.query.error == 'false' ){ %>
+                                <% }else if(req.query.success && !req.query.error){ %>
                                     <script>
                                         window.onload = function () {
                                             const Toast = Swal.mixin({
@@ -414,8 +414,8 @@
                                         window.onload = function () {
                                             Swal.fire({
                                                 icon: 'error',
-                                                title: 'Error saving your settings',
-                                                html: `<% errors.forEach(e=>{ %><%= e.split('%is%')[0] %>: <%= e.split('%is%')[1] %><br> <% }) %>`
+                                                title: 'There was an error saving some of your settings',
+                                                html: `<% errors.forEach(e=>{ console.log(e)%><%= e.split('%is%')[0] %>: <%= e.split('%is%')[1] %><br> <% }) %>`
                                             })
                                         };
                                     </script>
