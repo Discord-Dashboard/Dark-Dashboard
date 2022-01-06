@@ -42,6 +42,7 @@ const Dashboard = new DBD.Dashboard({
         imageFavicon: "https://www.imidnight.ml/assets/img/logo-circular.png",
         iconURL: "https://www.imidnight.ml/assets/img/logo-circular.png",
         pageBackGround: "linear-gradient(#2CA8FF, #155b8d)",
+        loggedIn: "Successfully signed in.",
         mainColor: "#2CA8FF",
         subColor: "#ebdbdb",
     },

@@ -28,6 +28,10 @@
     }
 
     window.onload = function () {
-        <% if(req.displayLoggedInInfo == true) { %> sweetalert("success", "Successfully signed in.", 2000) <% } %>
+        <% if(req.displayLoggedInInfo == true) {
+            let tsc = "Successfully signed in";
+            if(textConfig.information.loggedIn) tsc = textConfig.information.loggedIn;
+        %> sweetalert("success", "<%-tsc%>", 2000)
+        <% } %>
     };
 </script>
