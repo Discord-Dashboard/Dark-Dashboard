@@ -30,7 +30,7 @@
     window.onload = function () {
         <% if(req.displayLoggedInInfo == true) {
             let tsc = "Successfully signed in";
-            if(textConfig.information.loggedIn) tsc = textConfig.information.loggedIn;
+            if(themeConfig.information.loggedIn) tsc = themeConfig.information.loggedIn;
         %> sweetalert("success", "<%-tsc%>", 2000)
         <% } %>
     };
