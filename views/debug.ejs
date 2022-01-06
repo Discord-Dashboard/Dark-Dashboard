@@ -68,12 +68,16 @@
                                     if(!days) filterUptime = `${hours}h, ${minutes}m, ${seconds}s`;
                                     if(!hours) filterUptime = `${minutes}m, ${seconds}s`;
                                     if(!minutes) filterUptime = `${seconds}s`;
+                                    let modified1 = 0;
+                                    let modified2 = 0;
+                                    let modified3 = 0;
                                     let modified = 0;
                                     
-                                    if(onlineFiles.index.replace(/\s+/g, '') !== localFiles.index.replace(/\s+/g, '')) modified++;
-                                    if(onlineFiles.guild.replace(/\s+/g, '') !== localFiles.guild.replace(/\s+/g, '')) modified++;
-                                    if(onlineFiles.guilds.replace(/\s+/g, '') !== localFiles.guilds.replace(/\s+/g, '')) modified++;
                                     
+                                    if(onlineFiles.index.replace(/\s+/g, '') !== localFiles.index.replace(/\s+/g, '')) modified1++;
+                                    if(onlineFiles.guild.replace(/\s+/g, '') !== localFiles.guild.replace(/\s+/g, '')) modified2++;
+                                    if(onlineFiles.guilds.replace(/\s+/g, '') !== localFiles.guilds.replace(/\s+/g, '')) modified3++;
+                                    modified = modified1 + modified2 + modified3;
                                     %>
                                     <div class="row" style="padding-top: 20px">
                                         <div class="col-sm" style="text-align: center;">
@@ -102,6 +106,12 @@
                                         Warning: <br>This theme has been modified, this is not recommended. Modifying the theme can result in lack of support in the future, so make sure you know what you're doing!
                                       </div>
                                     </div>
+                                    <script>
+                                        <% if(modified1 !== 0) { %>console.log('index.ejs has been modified');<% } %>
+                                        <% if(modified2 !== 0) { %>console.log('guild.ejs has been modified');<% } %>
+                                        <% if(modified3 !== 0) { %>console.log('guilds.ejs has been modified');<% } %>
+                                    </script>
+                                    
                                     <% } %>
                                     
                                     </div>
