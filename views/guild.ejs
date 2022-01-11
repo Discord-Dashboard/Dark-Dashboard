@@ -704,6 +704,32 @@
                     </div>
                 </div>
             </div>
+            <% if(themeConfig.guildSettings){ %>
+                <% if(themeConfig.guildSettings.customFooterCard){ %>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <% if(themeConfig.guildSettings.customFooterCard.subtitle){ %><h5 class="card-category"><%- themeConfig.guildSettings.customFooterCard.subtitle%></h5><% } %>
+                                <h4 class="card-title"><%- themeConfig.guildSettings.customFooterCard.subtitle%></h4>
+                                <div class="dropdown">
+                                </div>
+                            </div>
+                            <div class="card-body round">
+                                <%- themeConfig.guildSettings.customFooterCard.customHTML%>
+                            </div>
+                            <% if(themeConfig.guildSettings.customFooterCard.footer){ %>
+                            <div class="card-footer" style="margin-top: 0px;">
+                                <div class="stats">
+                                    <%- themeConfig.guildSettings.customFooterCard.footer%>
+                                </div>
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            <% } %>
         </div>
         <%- include('partials/footer.ejs', {now:'manage'}) %>
     </div>
