@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 module.exports = (themeConfig = {}) => {
+    if(require('discord-dashboard').version[0] != "2")throw new TypeError("Theme supports only discord-dashboard@2.* # Please update your discord-dashboard module.");
     return {
         viewsPath: require('path').join(__dirname, '/views'),
         staticPath: require('path').join(__dirname, '/views/src'),
