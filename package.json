@@ -1,6 +1,6 @@
 {
   "name": "dbd-dark-dashboard",
-  "version": "1.5.29",
+  "version": "1.5.30",
   "description": "Discord Dashboard Theme",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,6 @@
   "license": "ISC",
   "bundleDependencies": false,
   "dependencies": {
-    "discord-dashboard": "^1.5.93",
     "node-fetch": "2.6.6"
   },
   "deprecated": false,
