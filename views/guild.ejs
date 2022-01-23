@@ -620,13 +620,7 @@
                                                             <% } %>
                                                               <% if(option.optionType.max){ %>maxlength="<%= option.optionType.max %>"
                                                             <% } %>
-                                                              rows="4" class="col-md-12">
-                                                        <% if(actual[s.categoryId][option.optionId]){ %>
-                                                            <%= actual[s.categoryId][option.optionId] %>
-                                                        <% }else{ %>
-                                                            <%= option.optionType.data %>
-                                                        <%}%>
-                                                    </textarea>
+                                                              rows="4" class="col-md-12"><% if(actual[s.categoryId][option.optionId]){ %><%= actual[s.categoryId][option.optionId] %><% }else{ %><%= option.optionType.data %><%}%></textarea>
                                                     <br>
                                                     <% if(!option.removeDivider){ %><hr><% } %>
                                                 <% }else if(option.optionType.type == "channelsSelect"){ %>
