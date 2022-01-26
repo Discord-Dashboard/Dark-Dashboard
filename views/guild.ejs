@@ -490,7 +490,9 @@
                                                     <select placeholder="Select" class="js-example-basic-multiple"
                                                             <% if(option.optionType.disabled){ %>disabled
                                                             <% } %>
-                                                            required name="<%= option.optionId %>"
+                                                            <% if(option.optionType.required){ %>required
+                                                            <% } %>
+                                                            name="<%= option.optionId %>"
                                                             style="width:100%;background: #f9f9ff;border-color: #f9f9ff;"
                                                             multiple="multiple">
                                                         <%
