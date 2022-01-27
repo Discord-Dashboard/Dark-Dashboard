@@ -70,6 +70,7 @@ const Dashboard = new DBD.Dashboard({
         {
             category: "Starting Up",
             subTitle: "All helpful commands",
+            aliasesDisabled: false,
             list: [{
                 commandName: "bug",
                 commandUsage: ";bug <bug>",
