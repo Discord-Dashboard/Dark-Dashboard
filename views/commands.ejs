@@ -68,9 +68,11 @@
                                 <th>
                                     Description
                                 </th>
-                                <th>
-                                    Aliases
-                                </th>
+                                <%if(!category.aliasesDisabled){%>
+                                    <th>
+                                        Aliases
+                                    </th>
+                                <%}%>
                                 </thead>
                                 <tbody>
                                 <% category.list.forEach((item)=>{ %>
@@ -78,7 +80,9 @@
                                     <td><%= item.commandName %></td>
                                     <td><code><%= item.commandUsage %></code></td>
                                     <td><%= item.commandDescription %></td>
-                                    <td><code><%= item.commandAlias %></code></td>
+                                    <%if(!category.aliasesDisabled){%>
+                                        <td><code><%= item.commandAlias %></code></td>
+                                    <%}%>
                                 </tr>
                                 <% }) %>
                                 </tbody>
