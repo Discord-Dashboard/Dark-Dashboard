@@ -1,0 +1,49 @@
+<div class="card-body">
+    <table class="table vm no-th-brd pro-of-month">
+        <thead>
+        <tr>
+            <th colspan="2">Servers</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+        for(var i in req.session.guilds){ %>
+        <% if((req.session.guilds[i].permissions & 0x00000020) == 0x00000020){ %>
+        <% if(!bot.guilds.cache.get(req.session.guilds[i].id)){
+        %>
+        <tr>
+            <td style="width:50px;"><img class="media-object round"
+                                         onerror="this.src = `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png`;"
+                                         src="https://cdn.discordapp.com/icons/<%= req.session.guilds[i].id %>/<%= req.session.guilds[i].icon %>.png">
+            </td>
+            <td>
+                <h6><%= req.session.guilds[i].name %></h6>
+                <small class="text-muted">Not in the server</small>
+            </td>
+            <td><a href="/invite" role="button" style="margin-left: 10px;"
+                   class="btn btn-small not-invited">Invite bot</a></td>
+        </tr>
+
+        <% }else{ %>
+        <tr>
+            <td style="width:50px;"><img class="media-object round"
+                                         onerror="this.src = `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png`;"
+                                         src="https://cdn.discordapp.com/icons/<%= req.session.guilds[i].id %>/<%= req.session.guilds[i].icon %>.png">
+            </td>
+            <td>
+                <h6><%= req.session.guilds[i].name %></h6>
+                <small class="text-muted">In the server</small>
+            </td>
+            <td><a href="/guild/<%= req.session.guilds[i].id %>" role="button"
+                   class="btn btn-small invited">Manage bot</a></td>
+        </tr>
+        <% } %>
+        <% } %>
+        <% } %>
+        </tbody>
+    </table>
+    <p style="color: rgb(199, 196, 196);">If you cant see any of your servers try <span
+                style="cursor: pointer;" class="bluey"
+                onclick="window.location = '/discord/logout'">logging out</span>.</p>
+</div>
