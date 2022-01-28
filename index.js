@@ -7,6 +7,7 @@ module.exports = (themeConfig = {}) => {
         viewsPath: require('path').join(__dirname, '/views'),
         staticPath: require('path').join(__dirname, '/views/src'),
         themeConfig: themeConfig,
+        embedBuilderComponent: require('fs').readFileSync(require('path').join(__dirname, '/embedBuilderComponent.txt'), 'utf8'),
         init: (app, config) => {
             app.use('/commands', (req, res) => {
                 res.render('commands', {req: req, config: config, themeConfig: themeConfig});
