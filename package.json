@@ -1,6 +1,6 @@
 {
   "name": "dbd-dark-dashboard",
-  "version": "1.6.11",
+  "version": "1.6.12",
   "description": "Discord Dashboard Theme",
   "main": "index.js",
   "scripts": {

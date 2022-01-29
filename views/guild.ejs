@@ -414,7 +414,7 @@
                                      Swal.fire({
                                          icon: 'error',
                                          title: 'There was an error saving some of your settings',
-                                         html: `<% errors.forEach(e=>{ console.log(e)%><%= e.split('%is%')[0] %>: <%= e.split('%is%')[1] %><br> <% }) %>`
+                                         html: `<% errors.forEach(e=>{ %><%= e.split('%is%')[0] %>: <%= e.split('%is%')[1] %><br> <% }) %>`
                                      })
                                  };
                               </script>
@@ -703,7 +703,13 @@
                                        <%=option.optionDescription%><br>
                                        <textarea id="<%=option.optionId%>" name="<%=option.optionId%>" style="visibility: hidden;width: .1px;height: .1px"></textarea>
                                        <div class="iframe-container">
-                                          <iframe class="responsive-iframe" src="data:text/html;charset=utf-8,<%=encodeURIComponent(config.theme.embedBuilderComponent.replace('{{ContentJsonReplacer}}', option.optionType.data.defaultJson ? ((actual[s.categoryId][option.optionId] == null) ? JSON.stringify(option.optionType.data.defaultJson, null, 3) : JSON.stringify(actual[s.categoryId][option.optionId] , null, 3)) : `{
+                                          <%
+                                             let embedContent;
+                                             if(actual[s.categoryId][option.optionId] == null){
+                                                if(option.optionType.data.defaultJson){
+                                                   embedContent = JSON.stringify(option.optionType.data.defaultJson, null, 3);
+                                                }else{
+                                                   embedContent = `{
                                              content: "Did you know that if you don't know something, you don't know it? This riddle was solved by me. Don't thank me.",
                                              embed: {
                                                  timestamp: new Date().toISOString(),
@@ -733,7 +739,12 @@
                                                      },
                                                  ]
                                              }
-                                             }`)).replace('{{msgSource}}', option.optionId).replace('{{botusername}}', option.optionType.data.username).replace('{{botavatar}}', option.optionType.data.avatarURL))%>"></iframe>
+                                             }`
+                                                }
+                                             }else{
+                                                embedContent = JSON.stringify(actual[s.categoryId][option.optionId], null, 3);
+                                             } %>
+                                          <iframe class="responsive-iframe" src="data:text/html;charset=utf-8,<%=encodeURIComponent(config.theme.embedBuilderComponent.replace('{{ContentJsonReplacer}}',  embedContent).replace('{{msgSource}}', option.optionId).replace('{{botusername}}', option.optionType.data.username).replace('{{botavatar}}', option.optionType.data.avatarURL))%>"></iframe>
                                        </div>
                                        <script>
                                           window.addEventListener('message', function(e) {
