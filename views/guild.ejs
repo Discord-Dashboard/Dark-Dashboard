@@ -508,7 +508,7 @@
                                                 </label>
                                                 <br>
                                                 <% if(!option.removeDivider){ %><hr><% } %>
-                                                
+
                                                 <% }else if(option.optionType.type == "switch"){
                                                     let val = "";
                                                     if (actual[s.categoryId][option.optionId]) val = "checked";
@@ -555,8 +555,8 @@
                                                 }
                                                 else if(option.optionType == "spacer") { %>
 
-                                                    <h3><b><%= option.title %></b></h3>
-                                                    <%= option.description %>
+                                                    <h3><b><%- option.title %></b></h3>
+                                                    <%- option.description %>
                                                     <br>
                                                     <% if(!option.removeDivider){ %><hr><% } %>
                                                 <% }
