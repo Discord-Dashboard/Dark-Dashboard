@@ -101,6 +101,14 @@
                                                 <a><b>v<%-themeVersion%></b></a>
                                         </div>
                                     </div>
+                                    <p style="padding-left: 40px;padding-right: 40px;text-align: center">Permissions required to manage guilds:</p>
+                                    <div style="padding-top: -5px">
+                                        <%req.requiredPermissions.forEach(p=>{%>
+                                        <div style="text-align: center;">
+                                            <a><b><%=p[0]%></b></a> (<a><b><%=p[1]%></b></a>)
+                                        </div>
+                                        <%});%>
+                                    </div>
                                     <% if(modified !== 0) { %>
                                     <div class="alert alert-danger" role="alert" style="margin-top: 20px; border-radius: 15px; width: calc(100% - 40px); margin: 20px auto;">
                                         Warning: <br>This theme has been modified, this is not recommended. Modifying the theme can result in lack of support in the future, so make sure you know what you're doing!

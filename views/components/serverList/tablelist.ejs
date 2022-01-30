@@ -8,8 +8,17 @@
         </thead>
         <tbody>
         <%
-        for(var i in req.session.guilds){ %>
-        <% if((req.session.guilds[i].permissions & 0x00000020) == 0x00000020){ %>
+        for(var i in req.session.guilds){
+            let permsAllowed = [];
+            for(let perm of req.requiredPermissions){
+                if((req.session.guilds[i].permissions & perm[1]) == perm[1]){
+                    permsAllowed.push(true);
+                }else{
+                    permsAllowed.push(false);
+                }
+            }
+        %>
+        <% if(!permsAllowed.includes(false)){ %>
         <% if(!bot.guilds.cache.get(req.session.guilds[i].id)){
         %>
         <tr>
