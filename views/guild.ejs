@@ -411,19 +411,11 @@
                               <% }else{ %>
                               <script>
                                  window.onload = function () {
-                                    if(<%=errors[0].includes('%25is%25')%>){
-                                       Swal.fire({
-                                          icon: 'error',
-                                          title: 'There was an error saving some of your settings',
-                                          html: `<% errors.forEach(e=>{ %><%= decodeURI(e.split('%25is%25')[0]) %>: <%= decodeURI(e.split('%25is%25')[1]) %><br> <% }) %>`
-                                       })
-                                    }else{
-                                        Swal.fire({
-                                            icon: 'error',
-                                            title: 'There was an error saving some of your settings',
-                                            html: `<% errors.forEach(e=>{ %><%= e.split('%is%')[0] %>: <%= e.split('%is%')[1] %><br> <% }) %>`
-                                        })
-                                    }
+                                    Swal.fire({
+                                       icon: 'error',
+                                       title: 'There was an error saving some of your settings',
+                                       html: `<% errors.forEach(e=>{ %><%= e.split('%is%')[0] %>: <%= e.split('%is%')[1] %><br> <% }) %>`
+                                    })
                                  };
                               </script>
                               <% } %>
