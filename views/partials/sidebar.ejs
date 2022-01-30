@@ -12,6 +12,7 @@
     </div>
     <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
+            <% if(!themeConfig.sidebar || themeConfig.sidebar.keepDefault) { %>
             <li class="<% if(now == 'index'){ %>active<% } %>">
                 <a href="/">
                     <svg style="position: absolute; margin-left: 8px; margin-top: 2px;"
@@ -78,6 +79,17 @@
                     <p style="margin-left: 40px;">Privacy Policy</p>
                 </a>
             </li>
+            <% } %>
+            <% if(themeConfig.sidebar){ %>
+                <% themeConfig.sidebar.list.forEach(li => { %>
+                    <li class="<% if(now == li.id){ %>active<% } %>">
+                        <a href="<%- li.link %>">
+                                <%- li.icon%>
+                                <p style="margin-left: 40px;"><%- li.title%></p>
+                            </a>
+                    </li>
+                <% }) %>    
+            <% } %>
             <li class="bottomsidebar asidebar">
                 <hr style="margin-left: 25px;">
                 <a>
@@ -101,5 +113,6 @@
             </li>
 
         </ul>
+
     </div>
 </div>
