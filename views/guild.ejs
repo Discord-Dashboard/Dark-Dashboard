@@ -411,11 +411,11 @@
                               <% }else{ %>
                               <script>
                                  window.onload = function () {
-                                    if(errors[0].includes('%25is%25')){
+                                    if(<%=errors[0].includes('%25is%25')%>){
                                        Swal.fire({
                                           icon: 'error',
                                           title: 'There was an error saving some of your settings',
-                                          html: `<% errors.forEach(e=>{ %><%= e.split('%25is%25')[0] %>: <%= e.split('%25is%25')[1] %><br> <% }) %>`
+                                          html: `<% errors.forEach(e=>{ %><%= decodeURI(e.split('%25is%25')[0]) %>: <%= decodeURI(e.split('%25is%25')[1]) %><br> <% }) %>`
                                        })
                                     }else{
                                         Swal.fire({
