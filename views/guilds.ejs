@@ -163,6 +163,20 @@
 <script src="https://adn.siondevelopment.xyz/dbd-dark/src/js/perfect_scrollbar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
 <script>
+    const ReloadGuildsButtonClicked = () => {
+        document.getElementById("ReloadComponent").innerHTML = "Reloading your guilds... Please wait, site will refresh automatically.";
+        fetch("/discord/guilds/reload").then(res=>res.json()).then(json=>{
+            if(json.error){
+                document.getElementById('reloadButtonErrorText').innerHTML = `${json.message} ${json.login_again_text ? "Please try <a href='/discord'>log in again</a>." : null}`;
+                document.getElementById("ReloadComponent").innerHTML = `If you cant see any of your servers try <span
+            style="cursor: pointer;" class="bluey"
+            onclick="ReloadGuildsButtonClicked();">reloading them</span>.`;
+            }else{
+                window.location.reload(false);
+            }
+        });
+    }
+
     if (window.location.href.indexOf("?error=noPermsToManageGuild") != -1) {
         const Toast = Swal.mixin({
             toast: true,

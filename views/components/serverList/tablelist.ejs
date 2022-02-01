@@ -52,7 +52,8 @@
         <% } %>
         </tbody>
     </table>
-    <p style="color: rgb(199, 196, 196);">If you cant see any of your servers try <span
+    <p style="color: rgb(199, 196, 196);" id="ReloadComponent">If you cant see any of your servers try <span
                 style="cursor: pointer;" class="bluey"
-                onclick="window.location = '/discord/logout'">logging out</span>.</p>
+                onclick="ReloadGuildsButtonClicked();">reloading them</span>.</p>
+    <a style="color:red" id="reloadButtonErrorText"></a>
 </div>
