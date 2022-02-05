@@ -3,7 +3,7 @@
 <p align="center"><img src="https://nodei.co/npm/dbd-dark-dasboard.png"></p>
 <p align="center"><a href="https://discord.gg/Nkc8MWxHRD"> <img src="https://discordapp.com/api/guilds/803034737261936670/widget.png" alt="Discord server"/></a></p>
 
-# Discord-Dashboard
+# Discord-Dashboard Dark Theme
 
 - Simple Discord-Dashboard theme
 - Easy to customize
