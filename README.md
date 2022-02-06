@@ -10,6 +10,14 @@
 - Easy configuration
 - Community support
 
+# Preview
+
+![image1](https://i.imgur.com/33sk9Gi.png)
+![image2](https://imgur.com/2Lu0dtH.png)
+![image3](https://imgur.com/cryZKZh.png)
+![image4](https://i.imgur.com/BSYQiXW.png)
+![image5](https://i.imgur.com/cZmoHl9.png)
+
 # Install
 
 ```js
