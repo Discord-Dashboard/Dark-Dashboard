@@ -1,4 +1,4 @@
-<!--<img src="https://cdn.assistants.ga/kxlrosdn">-->
+![Banner](./DarkBanner.png)
 
 <p align="center"><img src="https://nodei.co/npm/dbd-dark-dasboard.png"></p>
 <p align="center"><a href="https://discord.gg/Nkc8MWxHRD"> <img src="https://discordapp.com/api/guilds/803034737261936670/widget.png" alt="Discord server"/></a></p>
