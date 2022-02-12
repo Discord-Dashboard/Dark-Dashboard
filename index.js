@@ -2,6 +2,8 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 module.exports = (themeConfig = {}) => {
     if(
+        require('discord-dashboard').startWith('1')
+        ||
         require('discord-dashboard').startWith('2.0')
         ||
         require('discord-dashboard').startWith('2.1')
