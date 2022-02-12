@@ -1,7 +1,14 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 module.exports = (themeConfig = {}) => {
-    if(require('discord-dashboard').version[0] != "2")throw new TypeError("Theme supports only discord-dashboard@2.* # Please update your discord-dashboard module.");
+    if(
+        require('discord-dashboard').startWith('2.0')
+        ||
+        require('discord-dashboard').startWith('2.1')
+        ||
+        require('discord-dashboard').startWith('2.2')
+    )throw new TypeError("This theme supports only discord-dashboard@>2.3 # Please update your discord-dashboard module.");
+    
     return {
         themeCodename: 'dbddrk',
         viewsPath: require('path').join(__dirname, '/views'),
