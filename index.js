@@ -2,13 +2,13 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 module.exports = (themeConfig = {}) => {
     if(
-        require('discord-dashboard').startWith('1')
+        require('discord-dashboard').version.startsWith('1')
         ||
-        require('discord-dashboard').startWith('2.0')
+        require('discord-dashboard').version.startsWith('2.0')
         ||
-        require('discord-dashboard').startWith('2.1')
+        require('discord-dashboard').version.startsWith('2.1')
         ||
-        require('discord-dashboard').startWith('2.2')
+        require('discord-dashboard').version.startsWith('2.2')
     )throw new TypeError("This theme supports only discord-dashboard@>2.3 # Please update your discord-dashboard module.");
     
     return {
