@@ -468,24 +468,41 @@
                                        <% if(!option.removeDivider){ %>
                                        <hr>
                                        <% } %>
-                                       <% }else if(option.optionType.type == "switch"){
-                                          let val = "";
-                                          if (actual[s.categoryId][option.optionId]) val = "checked";
-                                          %>
-                                       <h4><%- option.optionName %></h4>
-                                       <%- option.optionDescription %><br>
-                                       <label class="toggleSwitch">
-                                       <input type="checkbox" id="<%= option.optionId %>"
-                                          name="<%= option.optionId %>" <%- val %>
-                                          <% if(option.optionType.disabled){ %>disabled
+                                       <% } else if(option.optionType.type == "switch"){ %>
+                                          <% if (option?.themeOptions?.minimalbutton) { %>
+                                             <% if (option.themeOptions.minimalbutton.first) { %><h4><%- option.optionName %></h4><% } %>
+                                             <% if (option.themeOptions.minimalbutton.first) { %><div class="d-flex" style="flex-flow: wrap; row-gap: 20px;"><% } %>
+                                                <div class="d-flex" style="align-items: center; margin-right: auto; flex: 1 0 21%;">
+                                                   <% let val = ""; if (actual[s.categoryId][option.optionId]) val = "checked"; %>
+                                                   <br>
+                                                   <label class="toggleSwitch" style="margin-bottom: 0 !important; margin-right: 10px;">
+                                                   <input type="checkbox" id="<%= option.optionId %>"
+                                                      name="<%= option.optionId %>" <%- val %>
+                                                      <% if(option.optionType.disabled){ %>disabled
+                                                      <% } %>
+                                                      >
+                                                   <span class="tslider round"></span>
+                                                   </label>
+                                                   <%- option.optionDescription %>
+                                                </div>
+                                                <% if (option.themeOptions.minimalbutton.last) { %></div><br><% } %>
+                                          <% } else { %> 
+                                             <% let val = ""; if (actual[s.categoryId][option.optionId]) val = "checked"; %>
+                                             <h4><%- option.optionName %></h4>
+                                             <%- option.optionDescription %><br>
+                                             <label class="toggleSwitch">
+                                             <input type="checkbox" id="<%= option.optionId %>"
+                                                name="<%= option.optionId %>" <%- val %>
+                                                <% if(option.optionType.disabled){ %>disabled
+                                                <% } %>
+                                                >
+                                             <span class="tslider round"></span>
+                                             </label>
+                                             <br>
+                                             <% if(!option.removeDivider){ %>
+                                                <hr>
+                                             <% } %>
                                           <% } %>
-                                       >
-                                       <span class="tslider round"></span>
-                                       </label>
-                                       <br>
-                                       <% if(!option.removeDivider){ %>
-                                       <hr>
-                                       <% } %>
                                        <% }else if(option.optionType.type == "channelsMultiSelect" || option.optionType.type == "rolesMultiSelect"){ %>
                                        <h4><%- option.optionName %></h4>
                                        <%- option.optionDescription %><br>
