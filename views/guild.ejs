@@ -486,8 +486,10 @@
                                                    <%- option.optionDescription %>
                                                 </div>
                                                 <% if (option.themeOptions.minimalbutton.last) { %></div><br><% } %>
-                                          <% } else { %> 
-                                             <% let val = ""; if (actual[s.categoryId][option.optionId]) val = "checked"; %>
+                                          <% } else { 
+                                                   let val = "";
+                                                   if (actual[s.categoryId][option.optionId]) val = "checked";
+                                                %>
                                              <h4><%- option.optionName %></h4>
                                              <%- option.optionDescription %><br>
                                              <label class="toggleSwitch">
