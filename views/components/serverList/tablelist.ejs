@@ -30,7 +30,7 @@
                 <h6><%= req.session.guilds[i].name %></h6>
                 <small class="text-muted">Not in the server</small>
             </td>
-            <td><a href="/invite" role="button" style="margin-left: 10px;"
+            <td><a href="/invite?g=<%=req.session.guilds[i].id%>" role="button" style="margin-left: 10px;"
                    class="btn btn-small not-invited">Invite bot</a></td>
         </tr>
 
