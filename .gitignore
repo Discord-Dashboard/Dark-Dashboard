@@ -1,5 +1,7 @@
 .idea
 .vscode
+.github
+.git
 node_modules
 package-lock
 yarn.lock
