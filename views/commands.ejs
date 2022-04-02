@@ -12,14 +12,9 @@
           name='viewport'/>
     <%- include('partials/head.ejs') %>
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- CSS Files -->
-    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/now-ui-dashboard.css" rel="stylesheet"/>
-    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/theme.css" id="theme" rel="stylesheet">
-    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/darkreader.css" id="theme" rel="stylesheet">
     <style>
         .code {
             padding: .2rem .4rem;
@@ -38,7 +33,8 @@
 </head>
 
 <body class="">
-<%- include('partials/body.ejs') %>
+<%- include('partials/preloader.ejs') %>
+<% if (themeConfig?.custom_html?.body) { %><%- themeConfig.custom_html.body %><% } %>
 <!-- Side Bar-->
 <%- include('partials/sidebar.ejs', {now:'commands'}) %>
 <div class="main-panel" id="main-panel">
@@ -49,48 +45,48 @@
     <div class="content">
         <div class="row">
             <% themeConfig.commands.forEach(category => { %>
-            <div class="col-12" id="divtable">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h4 class="card-title"><%= category.category %></h4>
-                        <p class="category"><%= category.subTitle %></p>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table" id="table1">
-                                <thead class=" text-primary">
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Command Usage
-                                </th>
-                                <th>
-                                    Description
-                                </th>
-                                <%if(!category.aliasesDisabled){%>
+                <div class="col-12" id="divtable">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 class="card-title"><%= category.category %></h4>
+                            <p class="category"><%= category.subTitle %></p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table" id="table1">
+                                    <thead class=" text-primary">
                                     <th>
-                                        Aliases
+                                        Name
                                     </th>
-                                <%}%>
-                                </thead>
-                                <tbody>
-                                <% category.list.forEach((item)=>{ %>
-                                <tr>
-                                    <td><%= item.commandName %></td>
-                                    <td><code><%= item.commandUsage %></code></td>
-                                    <td><%= item.commandDescription %></td>
-                                    <%if(!category.aliasesDisabled){%>
-                                        <td><code><%= item.commandAlias %></code></td>
-                                    <%}%>
-                                </tr>
-                                <% }) %>
-                                </tbody>
-                            </table>
+                                    <th>
+                                        Command Usage
+                                    </th>
+                                    <th>
+                                        Description
+                                    </th>
+                                    <% if(!category.aliasesDisabled){ %>
+                                        <th>
+                                            Aliases
+                                        </th>
+                                    <% } %>
+                                    </thead>
+                                    <tbody>
+                                    <% category.list.forEach((item)=>{ %>
+                                        <tr>
+                                            <td><%= item.commandName %></td>
+                                            <td><code><%= item.commandUsage %></code></td>
+                                            <td><%= item.commandDescription %></td>
+                                            <% if(!category.aliasesDisabled){ %>
+                                                <td><code><%= item.commandAlias %></code></td>
+                                            <% } %>
+                                        </tr>
+                                    <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <% }) %>
         </div>
     </div>
