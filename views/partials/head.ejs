@@ -1,10 +1,41 @@
-<% if(themeConfig.custom_html){ %>
-    <% if(themeConfig.custom_html.head){ %>
-    <%- themeConfig.custom_html.head %>
-    <% } %>
-<% } %>
+<% if (themeConfig?.custom_html?.head) { %><%- themeConfig.custom_html.head %><% } %>
+<link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/now-ui-dashboard.min.css" rel="stylesheet"/>
+<link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/theme.min.css" id="theme" rel="stylesheet">
+<link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/darkreader.min.css" id="theme" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
+<script src="https://adn.siondevelopment.xyz/dbd-dark/src/js/core/jquery.min.js"></script>
 <script>
+    let prog_width = 0;
+    let disabled = false;
+    document.onreadystatechange = function (e) {
+        if (disabled) return;
+        if (document.readyState === "interactive") {
+            var all = document.getElementsByTagName("*");
+            for (var i = 0, max = all.length; i < max; i++) {
+                checkProgress(all[i]);
+            }
+        }
+    }
+
+    function checkProgress(ele) {
+        var all = document.getElementsByTagName("*");
+        var per_inc = 100 / all.length;
+        if (disabled) return;
+
+        prog_width = prog_width + per_inc;
+        $("#progress").width(`${Math.floor(prog_width)}%`);
+
+        if (prog_width >= 100 && !disabled) {
+            disabled = true;
+            $(".preloader").fadeOut("slow")
+            //() => { $(".preloader").remove() }
+            $("#scroll").css('overflow', 'auto');
+        } else {
+            checkProgress(ele);
+        }
+    } 
     function sweetalert(icons, text, timer) {
         var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
         let pos = 'top-end';
@@ -30,8 +61,8 @@
     window.onload = function () {
         <% if(req.displayLoggedInInfo == true) {
             let tsc = "Successfully signed in";
-            if(themeConfig.information.loggedIn) tsc = themeConfig.information.loggedIn;
-        %> sweetalert("success", "<%-tsc%>", 2000)
+            if (themeConfig.information.loggedIn) tsc = themeConfig.information.loggedIn;
+        %> sweetalert("success", "<%- tsc %>", 2000)
         <% } %>
     };
 </script>

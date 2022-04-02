@@ -24,17 +24,14 @@
     <title>
         <%= themeConfig.information.websiteTitle %>
     </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport'/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+          name='viewport'/>
     <%- include('partials/head.ejs') %>
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
+    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- CSS Files -->
-    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/now-ui-dashboard.css" rel="stylesheet"/>
-    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/theme.css" id="theme" rel="stylesheet">
-    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/darkreader.css" id="theme" rel="stylesheet">
     <style>
         .hidden {
             display: none;
@@ -44,7 +41,8 @@
 </head>
 
 <body>
-<%- include('partials/body.ejs') %>
+<%- include('partials/preloader.ejs') %>
+<% if (themeConfig?.custom_html?.body) { %><%- themeConfig.custom_html.body %><% } %>
 <div class="wrapper ">
     <!-- Side Bar-->
     <%- include('partials/sidebar.ejs', {now:'index'}) %>
@@ -64,7 +62,7 @@
                             </div>
                         </div>
                         <div class="card-body round">
-                             <img style="border-radius: 15px;" src="<%= themeConfig.index.card.image %>">
+                            <img style="border-radius: 15px;" src="<%= themeConfig.index.card.image %>">
                         </div>
                         <div class="card-footer" style="margin-top: 0px;">
                             <div class="stats">
