@@ -21,7 +21,9 @@
 # Install
 
 ```js
-npm i dbd-dark-dashboard
+npm
+i
+dbd - dark - dashboard
 ```
 
 # Get help
@@ -36,7 +38,8 @@ Full and continuously updated project documentation can be found at the URL: htt
 
 # Privacy Policy and Terms of Use
 
-You can always find an updated privacy policy and terms of use for discord-dashboard under URL: https://assistants.ga/discord-dashboard-pp-tos/
+You can always find an updated privacy policy and terms of use for discord-dashboard under
+URL: https://assistants.ga/discord-dashboard-pp-tos/
 
 # Contact
 
@@ -45,13 +48,16 @@ You can always find an updated privacy policy and terms of use for discord-dashb
 
 # Licenses
 
-The project is covered by a **Shareware (CC BY-NC-SA 4.0) licence**. This means that the project is theoretically free and limited, but it has a paid versions.
+The project is covered by a **Shareware (CC BY-NC-SA 4.0) licence**. This means that the project is theoretically free
+and limited, but it has a paid versions.
 
 ### What types of shareware license does the discord-dashboard project fall under?
 
 - **OpenSource License**: Free. Personal usage only. Non-profit.
-- **Personal License**: Profit allowed. Personal usage only. Priority support from developers. Limited to major version: v2.*
-- **Production License**: Allowed for profit purposes. Distribution Allowed (you can share the license with your close friends). Priority support from developers. Limited to major version: v2.*
+- **Personal License**: Profit allowed. Personal usage only. Priority support from developers. Limited to major version:
+  v2.*
+- **Production License**: Allowed for profit purposes. Distribution Allowed (you can share the license with your close
+  friends). Priority support from developers. Limited to major version: v2.*
 
 #### You always have the latest news and the option to purchase license at the URL: https://licenses.assistants.ga/
 
