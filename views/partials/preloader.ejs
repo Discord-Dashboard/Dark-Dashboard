@@ -40,6 +40,7 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        flex-direction: column;
     }
 
     .spinner * {
@@ -87,13 +88,12 @@
 </style>
 
 <div class="preloader">
-    <div style="text-align: center;">
-        <div class="wrappers">
-            <div class="spinner">
-                <div class="spinner-1"></div>
-                <div class="spinner-2"></div>
-                <div class="spinner-3"></div>
-            </div>
+    <div class="wrappers">
+        <% if (themeConfig.information?.preloader) { %><div><h3><%- themeConfig.information?.preloader  %></h3></div> <% } %>
+        <div class="spinner">
+            <div class="spinner-1"></div>
+            <div class="spinner-2"></div>
+            <div class="spinner-3"></div>
         </div>
     </div>
 </div>
