@@ -16,7 +16,7 @@ module.exports = (themeConfig = {}) => {
         viewsPath: require('path').join(__dirname, '/views'),
         staticPath: require('path').join(__dirname, '/views/src'),
         themeConfig: themeConfig,
-        embedBuilderComponent: require('fs').readFileSync(require('path').join(__dirname, '/embedBuilderComponent.txt'), 'utf8'),
+        embedBuilderComponent: (require('fs').readFileSync(require('path').join(__dirname, '/embedBuilderComponent.txt'), 'utf8')).replace('{{Colour}}', themeConfig.colourUpperCase ? themeConfig.colourUpperCase : 'Colour').replace('{{colour}}', themeConfig.colourLowerCase ? themeConfig.colourLowerCase : 'colour'),
         init: (app, config) => {
             app.use('/commands', (req, res) => {
                 res.render('commands', {req: req, config: config, themeConfig: themeConfig});
