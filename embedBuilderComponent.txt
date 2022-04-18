@@ -125,14 +125,11 @@ window.onload = () => {
             // Fill in indent spaces on a new line when enter (return) key is pressed.
             Enter: _ => {
                 let cur = editor.getCursor(), end = editor.getLine(cur.line),
-                    leadingSpaces = end.replace(/\S($|.)+/g, '') || '
-', nextLine = editor.getLine(cur.line + 1);
+                    leadingSpaces = end.replace(/\S($|.)+/g, '') || '    \n', nextLine = editor.getLine(cur.line + 1);
                 if ((nextLine === undefined || !nextLine.trim()) && !end.substr(cur.ch).trim())
-                    editor.replaceRange('
-', { line: cur.line, ch: cur.ch });
+                    editor.replaceRange('\n', { line: cur.line, ch: cur.ch });
                 else
-                    editor.replaceRange(`
-${end.endsWith('{') ? leadingSpaces + '    ' : leadingSpaces}`, {
+                    editor.replaceRange(`\n${end.endsWith('{') ? leadingSpaces + '    ' : leadingSpaces}`, {
                         line: cur.line,
                         ch: cur.ch
                     });
@@ -187,18 +184,13 @@ ${end.endsWith('{') ? leadingSpaces + '    ' : leadingSpaces}`, {
                 .replace(/__(.+?)__/g, '<u>$1</u>')
                 .replace(/\*(.+?)\*/g, '<em>$1</em>')
                 .replace(/_(.+?)_/g, '<em>$1</em>')
-            if (opts.inlineBlock) txt = txt.replace(/\`([^\`]+?)\`|\`\`([^\`]+?)\`\`|\`\`\`((?:
-|.)+?)\`\`\`/g, (m, x, y, z) => x ? `<code class="inline">${x}</code>` : y ? `<code class="inline">${y}</code>` : z ? `<code class="inline">${z}</code>` : m);
-            else txt = txt.replace(/\`\`\`(\w{1,15})?
-((?:
-|.)+?)\`\`\`|\`\`(.+?)\`\`(?!\`)|\`([^\`]+?)\`/g, (m, w, x, y, z) => w && x ? `<pre><code class="${w}">${x.trim()}</code></pre>` : x ? `<pre><code class="hljs nohighlight">${x.trim()}</code></pre>` : y || z ? `<code class="inline">${y || z}</code>` : m);
+            if (opts.inlineBlock) txt = txt.replace(/\`([^\`]+?)\`|\`\`([^\`]+?)\`\`|\`\`\`((?:\n|.)+?)\`\`\`/g, (m, x, y, z) => x ? `<code class="inline">${x}</code>` : y ? `<code class="inline">${y}</code>` : z ? `<code class="inline">${z}</code>` : m);
+            else txt = txt.replace(/\`\`\`(\w{1,15})?\n((?:\n|.)+?)\`\`\`|\`\`(.+?)\`\`(?!\`)|\`([^\`]+?)\`/g, (m, w, x, y, z) => w && x ? `<pre><code class="${w}">${x.trim()}</code></pre>` : x ? `<pre><code class="hljs nohighlight">${x.trim()}</code></pre>` : y || z ? `<code class="inline">${y || z}</code>` : m);
             if (opts.inEmbed) txt = txt.replace(/\[([^\[\]]+)\]\((.+?)\)/g, `<a title="$1" target="_blank" class="anchor" href="$2">$1</a>`);
             if (opts.replaceEmojis) txt = txt.replace(/(?<!code(?: \w+=".+")?>[^>]+)(?<!\/[^\s"]+?):((?!\/)\w+):/g, (match, x) => x && emojis[x] ? emojis[x] : match);
             txt = txt
-                .replace(/&#62; .+(?:\s&#62; .+)*
-?/g, match => `<div class="blockquote"><div class="blockquoteDivider"></div><blockquote>${match.replace(/&#62; /g, '')}</blockquote></div>`)
-                .replace(/
-/g, '<br>')
+                .replace(/&#62; .+(?:\s&#62; .+)*\n?/g, match => `<div class="blockquote"><div class="blockquoteDivider"></div><blockquote>${match.replace(/&#62; /g, '')}</blockquote></div>`)
+                .replace(/\n/g, '<br>')
             return txt;
         },
         embed = document.querySelector('.embedGrid'),
@@ -211,7 +203,7 @@ ${end.endsWith('{') ? leadingSpaces + '    ' : leadingSpaces}`, {
         embedThumbnail = document.querySelector('.embedThumbnail > img'),
         embedFields = embed.querySelector('.embedFields'),
         smallerScreen = matchMedia('(max-width: 1015px)'),
-        encodeHTML = str => str.replace(/[ -香<>\&]/g, i => '&#' + i.charCodeAt(0) + ';'),
+        encodeHTML = str => str.replace(/[\u00A0-\u9999<>\&]/g, i => '&#' + i.charCodeAt(0) + ';'),
         tstamp = stringISO => {
             let date = stringISO ? new Date(stringISO) : new Date(),
                 dateArray = date.toLocaleString('en-US', { hour: 'numeric', hour12: false, minute: 'numeric' }),
@@ -453,8 +445,7 @@ ${end.endsWith('{') ? leadingSpaces + '    ' : leadingSpaces}`, {
                     </svg>
                     <span>Remove</span>
                 </div>
-            </div>`).join('
-') + addField;
+            </div>`).join('\n') + addField;
         else fieldsEditor.innerHTML = addField;
 
         gui.querySelectorAll('.removeBtn').forEach(e => {
@@ -831,9 +822,7 @@ ${end.endsWith('{') ? leadingSpaces + '    ' : leadingSpaces}`, {
 
     document.querySelector('.opt.json').addEventListener('click', () => {
         let jsonData = JSON.stringify(json, null, 4);
-        editor.setValue(jsonData === '{}' ? '{
-
-}' : jsonData);
+        editor.setValue(jsonData === '{}' ? '{\n\t\n}' : jsonData);
         editor.refresh();
         document.body.classList.remove('gui');
         // if (!smallerScreen.matches)
@@ -847,9 +836,7 @@ ${end.endsWith('{') ? leadingSpaces + '    ' : leadingSpaces}`, {
         json = {};
         embed.style.removeProperty('border-color');
         picker.source.style.removeProperty('background');
-        update(json); buildGui(json); editor.setValue('{
-
-}');
+        update(json); buildGui(json); editor.setValue('{\n\t\n}');
         document.querySelectorAll('.gui>.item').forEach(e => e.classList.add('active'));
         if (!smallerScreen.matches)
             content.focus();
