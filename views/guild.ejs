@@ -9,7 +9,7 @@
           name='viewport'/>
     <%- include('partials/head.ejs') %>
     <!--     Fonts and icons     -->
-    
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -411,11 +411,7 @@
                                                             <% } %>
                                                               <% if(option.optionType.max){ %>maxlength="<%= option.optionType.max %>"
                                                             <% } %>
-                                                              rows="4" class="col-md-12">
-                                                        <% if(actual[s.categoryId][option.optionId]){ %><%= actual[s.categoryId][option.optionId] %>
-                                                        <% }else{ %><%= option.optionType.data %>
-                                                        <% } %>
-                                                    </textarea>
+                                                              rows="4" class="col-md-12"><% if(actual[s.categoryId][option.optionId]){ %><%= actual[s.categoryId][option.optionId] %><% }else{ %><%= option.optionType.data %><% } %></textarea>
                                                     <br>
                                                     <% if(!option.removeDivider){ %>
                                                         <hr>
