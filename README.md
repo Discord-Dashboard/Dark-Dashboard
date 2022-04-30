@@ -34,12 +34,11 @@ Join our Discord Support Server
 
 # Documentation
 
-Full and continuously updated project documentation can be found at the URL: https://assistants.ga/dbd-dark-docs/
-
+Full and continuously updated project documentation can be found at the URL: https://dbd-docs.assistantscenter.com/dark-theme/#/
 # Privacy Policy and Terms of Use
 
 You can always find an updated privacy policy and terms of use for discord-dashboard under
-URL: https://assistants.ga/discord-dashboard-pp-tos/
+URL: https://assistantscenter.com/discord-dashboard-pp-tos/
 
 # Contact
 
@@ -59,7 +58,7 @@ and limited, but it has a paid versions.
 - **Production License**: Allowed for profit purposes. Distribution Allowed (you can share the license with your close
   friends). Priority support from developers. Limited to major version: v2.*
 
-#### You always have the latest news and the option to purchase license at the URL: https://licenses.assistants.ga/
+#### You always have the latest news and the option to purchase license at the URL: https://licenses.assistantscenter.com/
 
 <hr>
 
