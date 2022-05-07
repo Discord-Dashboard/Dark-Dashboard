@@ -141,6 +141,7 @@
                                 <% } %>
                             </p>
                         </div>
+<<<<<<< Updated upstream
                         <% if(themeConfig.guilds){ %>
                             <%if(themeConfig.guilds.type == 'blurlist'){%>
                                 <%- include('components/serverList/blurlist.ejs')%>
@@ -152,6 +153,15 @@
                         <% } else{ %>
                             <%- include('components/serverList/blurlist.ejs')%>
                         <% } %>
+=======
+                         <% if(themeConfig?.guilds?.type == 'blurlist'){ %>
+                             <%- include('components/serverList/blurlist.ejs', {bot, themeConfig, config}) %>
+                         <% } else if( themeConfig?.guilds?.type == 'tablelist'){ %>
+                             <%- include('components/serverList/tablelist.ejs', {bot, themeConfig, config}) %>
+                         <% } else { %>
+                             <%- include('components/serverList/blurlist.ejs', {bot, themeConfig, config}) %>
+                         <% } %>
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
