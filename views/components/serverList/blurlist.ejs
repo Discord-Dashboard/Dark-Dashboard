@@ -1,64 +1,65 @@
 <div class="card-body">
     <div class="server-div">
-    <%
-    for(var i in req.session.guilds){
-    let permsAllowed = [];
-    for(let perm of req.requiredPermissions){
-        if((req.session.guilds[i].permissions & perm[1]) == perm[1]){
-            permsAllowed.push(true);
-        }else{
-            permsAllowed.push(false);
-        }
-    }
-    %>
-        <% if(!permsAllowed.includes(false)){ %>
-        <% if(!bot.guilds.cache.get(req.session.guilds[i].id)){
+        <%
+        for(var i in req.session.guilds){
+            let permsAllowed = [];
+            for (let perm of req.requiredPermissions) {
+                if ((req.session.guilds[i].permissions & perm[1]) == perm[1]) {
+                    permsAllowed.push(true);
+                } else {
+                    permsAllowed.push(false);
+                }
+            }
         %>
-            <div class="server">
-                <div class="image-div">
-                    <img class="background"
-                         onerror="this.src = https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png;"
-                         src="<%= req.session.guilds[i].icon ? `https://cdn.discordapp.com/icons/${req.session.guilds[i].id}/${req.session.guilds[i].icon}.png` : `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png` %>">
-                    <img class="server-image"
-                         onerror="this.src = https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png;"
-                         src="<%= req.session.guilds[i].icon ? `https://cdn.discordapp.com/icons/${req.session.guilds[i].id}/${req.session.guilds[i].icon}.png` : `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png` %>">
-                </div>
-                <div class="content-server">
-                    <br>
-                    <h6 style="text-align: center;"><%= req.session.guilds[i].name %></h6>
-                    <a href="/invite?g=<%=req.session.guilds[i].id%>" role="button"
-                       class="btn btn-small not-invited" style="position: absolute; left: 50%;
+        <% if(!permsAllowed.includes(false)){ %>
+            <% if(!bot.guilds.cache.get(req.session.guilds[i].id)){
+            %>
+                <div class="server">
+                    <div class="image-div">
+                        <img class="background"
+                             onerror="this.src = https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png;"
+                             src="<%= req.session.guilds[i].icon ? `https://cdn.discordapp.com/icons/${req.session.guilds[i].id}/${req.session.guilds[i].icon}.png` : `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png` %>">
+                        <img class="server-image"
+                             onerror="this.src = https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png;"
+                             src="<%= req.session.guilds[i].icon ? `https://cdn.discordapp.com/icons/${req.session.guilds[i].id}/${req.session.guilds[i].icon}.png` : `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png` %>">
+                    </div>
+                    <div class="content-server">
+                        <br>
+                        <h6 style="text-align: center;"><%= req.session.guilds[i].name %></h6>
+                        <a href="/invite?g=<%= req.session.guilds[i].id %>" role="button"
+                           class="btn btn-small not-invited" style="position: absolute; left: 50%;
 -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   transform: translateX(-50%);">Setup</a>
+                    </div>
                 </div>
-            </div>
-        <% }else{ %>
-            <div class="server">
-                <div class="image-div">
-                    <img class="background"
-                         onerror="this.src = https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png;"
-                         src="<%= req.session.guilds[i].icon ? `https://cdn.discordapp.com/icons/${req.session.guilds[i].id}/${req.session.guilds[i].icon}.png` : `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png` %>">
-                    <img class="server-image"
-                         onerror="this.src = 'https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png;'"
-                         src="<%= req.session.guilds[i].icon ? `https://cdn.discordapp.com/icons/${req.session.guilds[i].id}/${req.session.guilds[i].icon}.png` : `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png` %>">
-                </div>
-                <div class="content-server" style="width: 250px;">
-                    <br>
-                    <h6 style="text-align: center;">
-                        <%= req.session.guilds[i].name %>
-                    </h6>
+            <% }else{ %>
+                <div class="server">
+                    <div class="image-div">
+                        <img class="background"
+                             onerror="this.src = https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png;"
+                             src="<%= req.session.guilds[i].icon ? `https://cdn.discordapp.com/icons/${req.session.guilds[i].id}/${req.session.guilds[i].icon}.png` : `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png` %>">
+                        <img class="server-image"
+                             onerror="this.src = 'https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png;'"
+                             src="<%= req.session.guilds[i].icon ? `https://cdn.discordapp.com/icons/${req.session.guilds[i].id}/${req.session.guilds[i].icon}.png` : `https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png` %>">
+                    </div>
+                    <div class="content-server" style="width: 250px;">
+                        <br>
+                        <h6 style="text-align: center;">
+                            <%= req.session.guilds[i].name %>
+                        </h6>
 
-                    <a href="/guild/<%= req.session.guilds[i].id %>" role="button"
-                       class="btn btn-small invited" style="position: absolute; left: 50%; -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); transform: translateX(-50%); margin-left: 0;">Dashboard</a>
+                        <a href="/guild/<%= req.session.guilds[i].id %>" role="button"
+                           class="btn btn-small invited"
+                           style="position: absolute; left: 50%; -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); transform: translateX(-50%); margin-left: 0;">Dashboard</a>
+                    </div>
                 </div>
-            </div>
+            <% } %>
         <% } %>
         <% } %>
-    <% } %>
-</div>
-<p style="color: rgb(199, 196, 196);" id="ReloadComponent">If you cant see any of your servers try <span
-            style="cursor: pointer;" class="bluey"
-            onclick="ReloadGuildsButtonClicked();">reloading them</span>.</p>
+    </div>
+    <p style="color: rgb(199, 196, 196);" id="ReloadComponent">If you cant see any of your servers try <span
+                style="cursor: pointer;" class="bluey"
+                onclick="ReloadGuildsButtonClicked();">reloading them</span>.</p>
     <a style="color:red" id="reloadButtonErrorText"></a>
 </div>

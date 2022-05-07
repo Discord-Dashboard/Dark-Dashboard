@@ -28,93 +28,21 @@
           name='viewport'/>
     <%- include('partials/head.ejs') %>
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- CSS Files -->
-    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/now-ui-dashboard.css" rel="stylesheet"/>
-    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/theme.css" id="theme" rel="stylesheet">
-    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/darkreader.css" id="theme" rel="stylesheet">
+    <link href="https://adn.siondevelopment.xyz/dbd-dark/src/css/servers.css" rel="stylesheet"/>
     <style>
         .panel-header {
             background: <%-themeConfig.information.pageBackGround%> !important;
         }
     </style>
-    <style>
-        .small, small {
-            font-size: 100% !important;
-        }
-
-        .not-invited {
-            background-color: rgb(87, 84, 84) !important;
-        }
-    </style>
-    <style> .server-image {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid rgb(242, 244, 251);
-            filter: drop-shadow(rgba(0, 0, 0, 0.16) 0px 32px 72px);
-        }
-
-        .image-div {
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            align-items: center;
-            display: flex;
-            -webkit-box-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            border-radius: 8px;
-            width: 250px;
-            height: 200px;
-            border-radius: 10px;
-        }
-
-        .background {
-            position: relative;
-            width: 250px;
-            height: 200px;
-            display: flex;
-            filter: blur(10px);
-            opacity: 0.3;
-        }
-
-        .server {
-            display: inline-table;
-            margin-right: 40px;
-        }
-
-        .content-server {
-            width: 250px;
-            min-height: 200px;
-            position: relative;
-        }
-
-        .servbtn {
-            position: absolute;
-            left: 50%;
-            -webkit-transform: translateX(-50%);
-            -moz-transform: translateX(-50%);
-            transform: translateX(-50%);
-        } 
-        
-        @media screen and (max-width: 690px) {
-            .server-div {
-                width: min-content;
-                margin: auto;
-            }
-        }   
-        </style>
     <%- include('partials/css.ejs') %>
 </head>
 
 <body class="">
-<%- include('partials/body.ejs') %>
+<%- include('partials/preloader.ejs') %>
+<% if (themeConfig?.custom_html?.body) { %><%- themeConfig.custom_html.body %><% } %>
 <div class="wrapper ">
     <!-- Side Bar-->
     <%- include('partials/sidebar.ejs', {now:'manage'}) %>
@@ -161,13 +89,13 @@
 <script>
     const ReloadGuildsButtonClicked = () => {
         document.getElementById("ReloadComponent").innerHTML = "Reloading your guilds... Please wait, site will refresh automatically.";
-        fetch("/discord/guilds/reload").then(res=>res.json()).then(json=>{
-            if(json.error){
+        fetch("/discord/guilds/reload").then(res => res.json()).then(json => {
+            if (json.error) {
                 document.getElementById('reloadButtonErrorText').innerHTML = `${json.message} ${json.login_again_text ? "Please try <a href='/discord'>log in again</a>." : null}`;
                 document.getElementById("ReloadComponent").innerHTML = `If you cant see any of your servers try <span
             style="cursor: pointer;" class="bluey"
             onclick="ReloadGuildsButtonClicked();">reloading them</span>.`;
-            }else{
+            } else {
                 window.location.reload(false);
             }
         });
