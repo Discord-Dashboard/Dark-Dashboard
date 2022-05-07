@@ -70,11 +70,11 @@
                             </p>
                         </div>
                          <% if(themeConfig?.guilds?.type == 'blurlist'){ %>
-                             <%- include('components/serverList/blurlist.ejs', {bot, themeConfig, config}) %>
+                             <%- include('components/serverList/blurlist.ejs', {bot, themeConfig}) %>
                          <% } else if( themeConfig?.guilds?.type == 'tablelist'){ %>
-                             <%- include('components/serverList/tablelist.ejs', {bot, themeConfig, config}) %>
+                             <%- include('components/serverList/tablelist.ejs', {bot, themeConfig}) %>
                          <% } else { %>
-                             <%- include('components/serverList/blurlist.ejs', {bot, themeConfig, config}) %>
+                             <%- include('components/serverList/blurlist.ejs', {bot, themeConfig}) %>
                          <% } %>
                     </div>
                 </div>
