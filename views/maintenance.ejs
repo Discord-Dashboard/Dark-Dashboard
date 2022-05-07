@@ -747,6 +747,7 @@ if (defaultMaintenanceConfig !== {}) {
     </style>
 </head>
 <body style="margin: 0px !important;">
+<%- include('partials/preloader.ejs') %>
 <div id="content">
     <h1 id="content-title"><%- contentTitle %></h1>
     <%- texts.map(text => '<p class="text">' + text + '</p>').join('') %>
