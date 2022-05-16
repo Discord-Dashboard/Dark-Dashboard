@@ -14,7 +14,11 @@
         <ul class="nav">
             <% if(!themeConfig.sidebar || themeConfig.sidebar.keepDefault) { %>
                 <li class="<% if(now == 'index'){ %>active<% } %>">
-                    <a href="/">
+                    <%
+                    let homePage = "/";
+                    if(themeConfig.landingPage?.enabled) homePage = "/dash";
+                    %>
+                    <a href="<%-homePage%>">
                         <svg style="position: absolute; margin-left: 8px; margin-top: 2px;"
                              xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
                              fill="<%- themeConfig.information.mainColor %>">
