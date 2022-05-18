@@ -30,7 +30,7 @@
                            class="btn btn-small not-invited" style="position: absolute; left: 50%;
 -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
-  transform: translateX(-50%);">Setup</a>
+  transform: translateX(-50%);">Invite bot</a>
                     </div>
                 </div>
             <% }else{ %>
@@ -51,7 +51,7 @@
 
                         <a href="/guild/<%= req.session.guilds[i].id %>" role="button"
                            class="btn btn-small invited"
-                           style="position: absolute; left: 50%; -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); transform: translateX(-50%); margin-left: 0;">Dashboard</a>
+                           style="position: absolute; left: 50%; -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); transform: translateX(-50%); margin-left: 0;">Manage bot</a>
                     </div>
                 </div>
             <% } %>
