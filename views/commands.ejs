@@ -73,11 +73,11 @@
                                     <tbody>
                                     <% category.list.forEach((item)=>{ %>
                                         <tr>
-                                            <td><%= item.commandName %></td>
-                                            <td><code><%= item.commandUsage %></code></td>
-                                            <td><%= item.commandDescription %></td>
+                                            <td><%- item.commandName %></td>
+                                            <td><code><%- item.commandUsage %></code></td>
+                                            <td><%- item.commandDescription %></td>
                                             <% if(!category.aliasesDisabled){ %>
-                                                <td><code><%= item.commandAlias %></code></td>
+                                                <td><code><%- item.commandAlias %></code></td>
                                             <% } %>
                                         </tr>
                                     <% }) %>
