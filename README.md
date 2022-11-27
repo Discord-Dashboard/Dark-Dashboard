@@ -34,11 +34,11 @@ Join our Discord Support Server
 
 # Documentation
 
-Full and continuously updated project documentation can be found at the URL: https://dbd-docs.assistantscenter.com/dark-theme/#/
+Full and continuously updated project documentation can be found at the URL: https://docs.assistantscenter.com/discord-dashboard/v2/dark-theme/
 # Privacy Policy and Terms of Use
 
 You can always find an updated privacy policy and terms of use for discord-dashboard under
-URL: https://assistantscenter.com/discord-dashboard-pp-tos/
+URL: https://assistantscenter.com/privacy-policy
 
 # Contact
 
