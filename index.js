@@ -1,6 +1,16 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 module.exports = (themeConfig = {}) => {
+    console.log(`
+██████ ██████ ██████ ██████ ██████ ██████ ██████ ██████ ██████ ██████ ██████
+IMPORTANT
+This DBD theme has been deprecated!
+
+This theme is no longer supported. Please use dbd-soft-ui Theme instead: 
+https://www.npmjs.com/package/dbd-soft-ui
+██████ ██████ ██████ ██████ ██████ ██████ ██████ ██████ ██████ ██████ ██████
+`)
+
     if (
         require('discord-dashboard').version.startsWith('1')
         ||
