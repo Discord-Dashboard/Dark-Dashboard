@@ -30,5 +30,8 @@
   "bugs": {
     "url": "https://github.com/Assistants-Center/dbd-dark-dashboard/issues"
   },
-  "homepage": "https://github.com/Assistants-Center/dbd-dark-dashboard#readme"
+  "homepage": "https://github.com/Assistants-Center/dbd-dark-dashboard#readme",
+  "devDependencies": {
+    "express": "^4.18.2"
+  }
 }
